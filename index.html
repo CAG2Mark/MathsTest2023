@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css?version=1">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.rawgit.com/dreampulse/computer-modern-web-font/master/fonts.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC&family=Roboto+Mono&display=swap" rel="stylesheet"> 
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css" integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY" crossorigin="anonymous"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+
+    <title>Harder</title>
+</head>
+
+<body class="no-animation">
+
+    <script src="darkmode.js"></script>
+
+    <div id="question-template" class="slide question question-template">
+        <p class="question-text">Test</p>
+        <input class="question-input" type="text">
+        <p>Your answer: <span class="question-answer-preview"></span></p>
+    </div>
+
+    <div id="checkpoint-template" class="slide checkpoint">
+        <h2>Checkpoint <span class="checkpoint-number"></span></h2>
+        <button class="checkpoint-button">Check Answers</button>
+        <div class="checkpoint-msg-container checkpoint-hidden">
+            <div class="checkpoint-correct checkpoint-hidden">
+                <p>All questions thus far are correct. Checkpoint code:</p>
+                <div class="code-out">stop hacking</div>
+            </div>
+            <p class="checkpoint-incorrect checkpoint-hidden">Sorry, at least one thus far is incorrect.</p>
+            <div class="checkpoint-error checkpoint-hidden">
+                <p>There was an error evaluating your answer for question 
+                    #<span class="checkpoint-error-num"></span>.</p>
+                <button class="checkpoint-error-redirect-button">Take me there.</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="top-row">
+        <form action="https://github.com/CAG2Mark/MathsTestNew" method="get" target="_blank">
+            
+        </form>
+        <button aria-label="View source code" id="source-code-button" class="top-button material-icons"
+            onclick="window.open('https://github.com/CAG2Mark/MathsTestNew', '_blank').focus()">code</button>
+        <button aria-label="View help" id="help-button" class="top-button material-icons">help</button>
+        <!--
+        <button aria-label="Manage cookie settings" id="cookies-button" class="top-button material-icons">cookie</button>
+        -->
+        <button aria-label="View privacy Information" id="privacy-button" class="top-button">Privacy</button>
+        <button aria-label="Toggle dark mode" id="dark-mode-button" class="top-button material-icons">brightness_4</button>
+    </div> 
+
+    <!-- cookies used here can be deemed strictly necessary and are hence not required -->
+    <!--
+    <div id="biscuit-popup" class="full-page-popup">
+        <div class="popup-wrap">
+            <h2>Cookie settings</h2>
+            <p>
+                Before you start tackling some problems, your consent is needed to use <b>functional cookies</b>.
+                These cookies <b>save your IGN, answers and dark mode preference</b> in between sessions.
+                Without these cookies, you'd need to re-enter your answers every time, (and toggle dark
+                mode on every time if you care about your eyesight).
+            </p>
+            <p>
+                And of course, we all know nobody wants to re-enter something like
+            </p>
+                \[\zeta(s) = \frac{\Gamma(1-s)}{2\pi i}\int_C dz \frac{(-z)^{s-1}}{e^z-1}\]
+            <p>
+                while staring at the sun every time they accidentally close the browser page.
+            </p>
+            <p>
+                Cookies for necessary functions, such as to remember your cookie choice, are always
+                enabled.
+            </p>
+            <p>
+                Allow functional cookies? You can change your preferences any time by clicking the 
+                <span class="material-icons">cookie</span> button at the top left.
+            </p>
+            <div>
+                <button id="allow-cookies-btn">
+                    Yes, allow.
+                </button>
+                <button id="allow-cookies-dark-btn">
+                    Yes, and PLEASE turn on dark mode!
+                </button>
+                <button id="disallow-cookies-btn">
+                    No thanks. I don't want my answers and preferences saved.
+                </button>
+            </div>
+            
+        </div> 
+    </div>  
+    -->
+
+    <div id="help-popup" class="full-page-popup">
+        <div class="popup-wrap">
+            <h2>Entering answers</h2>
+            <p>
+                For every question, you should input your answer into the answer box below the question
+                prompt. Depending on the question, you may need to enter a function/expression in terms
+                of variables/constants provided by the question, or you may need to enter an exact
+                number.
+            </p>
+            <p>
+                The input field can function like a mini-calculator; it understands common constants
+                and functions. It will show you a preview of your parsed answer as you type, and will
+                display an approximation of your answer when the answer is an exact number.
+            </p>
+            <p>
+                In fact, if your answer does not have an exact decimal representation,
+                you must type in the exact answer (in terms of 
+                \(\cos, \sin, e, \pi, \text{etc.}\)). The precision used your answer is checked to is greater than
+                that of most calculators. For example, if the answer is \(e^{\cos 2}\), you must
+                enter your answer as <span class="mono">e^cos(2)</span> and not <span class="mono">0.65958</span>.
+            </p>
+            <p>
+                The functions you may use can be found here: 
+                <a href="https://mathjs.org/docs/reference/functions.html">functions</a>, 
+                <a href="https://mathjs.org/docs/reference/constants.html">constants</a>.
+                Not all of these will work in the input field, but simple elemetary functions 
+                and common constants should work. To use \(\pi\) for example, simply type
+                <span class="mono">pi</span>. To calculate \(\cos(1)\), simply enter
+                <span class="mono">cos(1)</span>. Note that all trigonometric and 
+                hyperbolic functions use radians as both of their input and output units.
+            </p>
+            <p>The following manually added / renamed functions are also available:
+                <ul class="mono">
+                    <li>arcsin(x)</li>
+                    <li>arccos(x)</li>
+                    <li>arctan(x)</li>
+                    <li>arcsinh(x)</li>
+                    <li>arccosh(x)</li>
+                    <li>arctanh(x)</li>
+                    <li>ln(x)</li>
+                    <li>nCr(n,r)</li>
+                    <li>nPr(n,r)</li>
+                </ul>
+            </p>
+            <p>
+                If you use undefined constants or functions, it may not error
+                until you submit your answers at the end, which is when 
+                answers are checked.
+            </p>
+            <p>
+                Also note that it is your responsibility to determine whether the answer
+                should be a numerical value or a function when such information not explicitly specified.
+                The questions give you enough information to discern whether the answer
+                is in terms of constants and variables from the question, or whether it is
+                a numerical value.
+            </p>
+            <h2>Submitting answers</h2>
+            <p>
+                Apart from the tutorial questions, your answers will not be checked as
+                you type them. This is to prevent brute-forcing the answer to each
+                individual question. Moreover, the system is designed so that it can only
+                tell if <it>all</it> the answers are correct. It is physically impossible
+                to check individual answers by looking at the source code. Thus, you will
+                not know which question is incorrect until you get them all right.
+            </p>
+            <p>
+                However, if there is an error evaluating a certain answer you inputted,
+                then you will be told which question that was so you can correct it.
+            </p>
+        </div>
+    </div> 
+
+    <div id="privacy-popup" class="full-page-popup">
+        <div class="popup-wrap">
+            <p>
+                This website is purely client-side and does not store identifiable user data on any server.
+                The developer has made no efforts to send any user-generated data to any server. 
+                This can be verified by viewing the source code of this project.
+            </p>
+            <p>
+                However, this site is hosted on Cloudflare Pages, and hence is on Cloudflare's network. 
+                Thus, usage of this site may be subject to Cloudflare's privacy policy (available 
+                <a href="https://www.cloudflare.com/en-gb/privacypolicy/">here</a>).
+            </p>
+            <p>
+                Your IGN, dark mode preference and previous answers are saved between sessions
+                using your browser's local storage. However, this data is not accessible by the
+                developer.
+            </p>
+        </div>
+    </div>
+
+    <div id="wrap">
+        <div class="slide question starting-slide" id="name-entry">
+            <p class="question-text">Please enter your nickname</p>
+            <input type="text" id="ign-input" class="question-input">
+        </div>
+
+        <div class="slide starting-slide">
+            <p><b>Welcome</b></p>
+            <p>Welcome to the new maths test website. The next four pages will be tutorial questions
+                to teach you how to input answers into the new system. Your answers to these questions
+                will not affect the final result - you can skip them if you wish. After those
+                come the real questions, which you will have to answer.
+            </p>
+            <p>Your answers will be saved automatically between sessions, provided you
+                do not access this site in incognito/private mode or disable/clear your browser's local storage.
+            </p>
+            <p>
+                Oh, and don't try to cheat by looking at the source code. It won't work, and
+                you might even get misled.
+            </p>
+        </div>
+
+        <div id="questions-end" class="slide">
+            <button id="get-code-button">Check Answers</button>
+            <div class="end-page end-page-hidden" id="error-page">
+                <p>There was an error evaluating your answer for question #<span id="error-question-num"></span>.</p>
+                <button id="error-redirect-button">Take me there.</button>
+            </div>
+            <div class="end-page end-page-hidden"  id="incorrect-page">
+                <p>Sorry, you got one or more questions wrong. Try again.</p>
+            </div>
+            <div class="end-page end-page-hidden" id="correct-page">
+                <p>
+                    Congratulations! You got everything correct! DM me the following code for your prize.
+                </p>
+                <div class="code-out" id="code-out">UBAFE9DCB89ADF8EAFEADBCDBFD9C89A==</div>
+            </div>
+
+        </div>
+
+        <button id="back" class="material-icons round-button" style="display: none">arrow_back</button>
+        <button id="skip-questions" style="display: none">(Skip)</button>
+        <input type="number" id="question-number" min="1" style="display: none">
+        <button id="forward" class="material-icons round-button">arrow_forward</button>
+
+    </div>
+</body>
+
+<script src="mathjs/math.js?version=1"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+<script src="sha256.js"></script>
+<script src="config.js?version=1"></script>
+<script src="mathschecker.js?version=1"></script>
+<script src="questions.js?version=1"></script>
+<script src="ui.js?version=2"></script>
+<script src="script.js?version=1"></script>
+
+</html>

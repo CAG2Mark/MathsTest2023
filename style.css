@@ -1,0 +1,697 @@
+:root {
+    --button-margin: 16px;
+}
+
+body,
+html,
+#wrap {
+    font: 36px "Computer Modern Serif", serif;
+    user-select: none;
+    -webkit-user-select: none;
+
+    position: relative;
+
+    z-index: 1;
+
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    height: 100%;
+    width: 100%;
+
+    padding: 0px;
+    margin: 0px;
+}
+
+/* dev */
+
+/*
+.slide {
+    position: relative;
+    width: 100vw;
+    display: flex !important;
+    flex-flow: column wrap;
+    align-items: center;
+}
+*/
+
+/* prod */
+
+#question-template {
+    display: none !important;
+}
+
+.mono {
+    font: 0.8em 'Roboto Mono', Consolas, monospace;
+    user-select: text;
+}
+
+.slide {
+
+    position: absolute;
+
+    left: -150%;
+    top: calc(50% - 32px);
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+
+    display: none;
+
+    width: 100vw;
+
+}
+
+.material-icons {
+    font-family: "Material Icons" !important;
+}
+
+.round-button {
+    position: absolute;
+    bottom: var(--button-margin);
+    width: 80px;
+    height: 80px;
+    border-color: transparent;
+    border-radius: 40px;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    -ms-border-radius: 40px;
+    -o-border-radius: 40px;
+    font-size: 36px !important;
+}
+
+button {
+    transition: 150ms background-color, 300ms color;
+    border-color: transparent;
+    background-color: #EEEEEE;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+
+    font-family: "Computer Modern Serif", serif;
+    font-size: 36px;
+    padding: 8px;
+    margin: 8px;
+}
+
+.dark-mode button {
+    background-color: #1d1d1d;
+    color: white;
+}
+
+button:hover,
+button.hovered {
+    background-color: #DDDDDD;
+}
+
+.dark-mode button:hover,
+.dark-mode button.hovered {
+    background-color: #272727;
+}
+
+button:focus {
+    outline: none;
+}
+
+.katex {
+    font-size: 1em !important;
+}
+
+.cjk_fallback {
+    font-family: 'Noto Serif TC', serif !important;
+}
+
+#back {
+    left: var(--button-margin);
+}
+
+#skip-questions {
+    position: absolute;
+    bottom: 19px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-left: 0;
+}
+
+#question-number {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    width: 80px;
+    text-align: center;
+    transform: translateX(-50%);
+}
+
+#top-row {
+    width: calc(100% - 12px);
+    padding: 3px 6px;
+    display: flex;
+    position: absolute;
+    z-index: 5;
+}
+
+.top-button {
+    margin: 2px 0;
+    width: 44px;
+    height: 44px;
+    font-size: 24px !important;
+    padding: 8px;
+
+    background-color: transparent;
+    border-radius: 22px;
+
+    cursor: pointer;
+
+    color: #383838;
+}
+
+#privacy-button {
+    width: auto;
+    padding: 5.5px 12px;
+}
+
+#dark-mode-button {
+    margin-left: auto;
+}
+
+.dark-mode .top-button {
+    background-color: transparent;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+#forward {
+    right: var(--button-margin);
+}
+
+p {
+    margin: 0 0 24px 0;
+    text-align: center;
+    width: 90%;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+@keyframes left-in-anim {
+    0% {
+        left: -100%
+    }
+
+    100% {
+        left: 50%
+    }
+}
+
+@keyframes left-out-anim {
+    0% {
+        left: 50%
+    }
+
+    100% {
+        left: -100%
+    }
+}
+
+@keyframes right-in-anim {
+    0% {
+        left: 200%
+    }
+
+    100% {
+        left: 50%
+    }
+}
+
+@keyframes right-out-anim {
+    0% {
+        left: 50%
+    }
+    
+    100% {
+        left: 200%
+    }
+}
+
+.left-in {
+    animation-name: left-in-anim;
+    animation-duration: 400ms;
+}
+
+.left-out {
+    animation-name: left-out-anim;
+    animation-duration: 400ms;
+    left: -100%;
+}
+
+.right-in {
+    animation-name: right-in-anim;
+    animation-duration: 400ms;
+}
+
+.right-out {
+    animation-name: right-out-anim;
+    animation-duration: 400ms;
+    left: 200%;
+}
+
+.slide-visible {
+    display: flex !important;
+    flex-flow: column wrap;
+    align-items: center;
+    left: 50%;
+}
+
+input {
+    width: 800px;
+    padding: 0px 8px 0 8px;
+    font: 36px "Roboto Mono", Consolas, monospace;
+    border-radius: 6px;
+    border-width: 2px;
+    border-color: #CCCCCC;
+
+    border-style: solid;
+
+    transition: 200ms border-color, 200ms background-color, 200ms color;
+
+    margin: 0 auto 8px auto;
+}
+
+.dark-mode input {
+    background-color: #1a1a1a;
+    color: white;
+    border-color: #303030
+}
+
+input:hover {
+    border-color: #BBBBBB;
+}
+
+.dark-mode input:hover {
+    border-color: #3d3d3d;
+}
+
+input:focus,
+.dark-mode input:focus {
+    border-color: #005cd4;
+    outline: none;
+}
+
+.no-animation,
+.no-animation * {
+    transition: 0s !important;
+}
+
+/* Dark Mode */
+body,
+.full-page-popup,
+#top-row {
+    transition: background-color 300ms, color 300ms;
+    background-color: white;
+    color: #0c0c0c;
+}
+
+body.dark-mode,
+.dark-mode .full-page-popup,
+.dark-mode #top-row,
+.dark-mode #correct-page {
+    color: white;
+    background-color: #141414;
+}
+
+/* Full page popups */
+
+@keyframes opacity-in {
+    0% {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    1% {
+        visibility: visible;
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+@keyframes opacity-out {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    99% {
+        visibility: visible;
+        opacity: 0;
+    }
+
+    100% {
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+
+.full-page-popup {
+    z-index: 2;
+    width: 100%;
+    height: calc(100% - 56px);
+    margin-top: 56px;
+    overflow-y: auto;
+    position: absolute;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.opacity-animate-out {
+    animation-name: opacity-out;
+    animation-duration: 300ms;
+}
+
+.opacity-animate-in {
+    animation-name: opacity-in;
+    animation-duration: 300ms;
+    opacity: 1;
+    visibility: visible;
+}
+
+.hidden-opacity {
+    opacity: 0;
+}
+
+.popup-wrap {
+    position: relative;
+    flex-shrink: 0;
+    height: auto;
+    width: 80%;
+}
+
+.popup-wrap>p,
+.popup-wrap>*>li {
+    width: 100%;
+    font-size: 24px;
+    text-align: left;
+}
+
+.popup-wrap button {
+    font-size: 24px;
+    margin: 8px 0px 0px 0px;
+}
+
+.popup-wrap>h2 {
+    margin: 16px 0;
+}
+
+.popup-wrap::-webkit-scrollbar-track {
+    margin-top: 55px;
+}
+
+.checkpoint-correct {
+    text-align: center;
+}
+.checkpoint-correct p {
+    text-align: center;
+    margin-bottom: 4px !important;
+    width: 100%;
+}
+.checkpoint-error {
+    display: inline-block;
+    text-align: center;
+}
+.checkpoint > h2 {
+    margin-bottom: 4px;
+}
+.checkpoint p {
+    margin-bottom: 0;
+}
+.checkpoint-error > p {
+    width: 100%;
+}
+.checkpoint-hidden {
+    display: none !important;
+}
+.dark-mode .checkpoint-msg-container {
+    border: solid 2px rgb(124, 124, 124); 
+}
+.checkpoint-msg-container {
+    transition: 300ms border-color, 300ms background, 300ms color;
+    padding: 16px;
+    border-radius: 10px;
+    border: solid 2px rgb(92, 92, 92);
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    max-width: calc(90% - 32px);
+}
+
+
+@media (max-height: 900px) {
+    :root {
+        --button-margin: 8px;
+    }
+
+    body,
+    html,
+    #wrap {
+        font: 24px "Computer Modern Serif", serif;
+    }
+
+    input {
+        font: 24px "Roboto Mono", Consolas, monospace;
+    }
+
+    .round-button {
+        font-size: 30px !important;
+        width: 54px;
+        height: 54px;
+        border-radius: 27px;
+    }
+
+    button {
+        font-size: 22px;
+        padding: 1px 8px;
+        height: 44px;
+    }
+
+    #skip-questions {
+        bottom: var(--button-margin);
+    }
+
+    #question-number {
+        bottom: 10px;
+    }
+
+    .question-text {
+        margin-bottom: 8px;
+    }
+
+    .slide {
+        top: calc(50% - 2px);
+    }
+}
+
+.dark-mode .code-out {
+    background-color: #353535;
+}
+
+.code-out {
+    transition: 300ms background-color, 300ms color;
+
+    font: 20px 'Roboto Mono', Consolas, monospace;
+    word-wrap: break-word;
+    padding: 12px;
+    background-color: #dbdbdb;
+    border-radius: 10px;
+    user-select: all;
+    -webkit-user-select: text;
+
+    margin-bottom: 8px;
+    
+    max-width: calc(100% - 32px);
+}
+
+.dark-mode .end-page {
+    border: solid 2px rgb(124, 124, 124);
+}
+
+.end-page {
+    transition: 300ms border-color, 300ms background, 300ms color;
+
+    padding: 16px;
+    border-radius: 10px;
+    border: solid 2px rgb(92, 92, 92);
+
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+
+    max-width: calc(90% - 32px);
+}
+
+.end-page-hidden {
+    display: none;
+}
+
+.end-page p {
+    width: 100%;
+    margin: 8px 0;
+
+    text-align: center;
+}
+
+.end-page button {
+    margin: 0 auto;
+}
+
+/* 
+Credit for animated border: 
+
+Copyright (c) 2022 by Mike Schultz (https://codepen.io/mike-schultz/pen/NgQvGO)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
+
+#correct-page {
+    --borderWidth: 5px;
+    --borderRadius: 10px;
+    background: white;
+    position: relative;
+    border-radius: var(--borderRadius);
+    border: none;
+}
+
+#correct-page:after {
+    content: '';
+    position: absolute;
+    top: calc(-1 * var(--borderWidth));
+    left: calc(-1 * var(--borderWidth));
+    height: calc(100% + var(--borderWidth) * 2);
+    width: calc(100% + var(--borderWidth) * 2);
+    background: linear-gradient(135deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    border-radius: calc(var(--borderRadius) + var(--borderWidth));
+    z-index: -1;
+    animation: animatedgradient 3s ease alternate infinite;
+    background-size: 300% 300%;
+}
+
+
+@keyframes animatedgradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@media (max-width: 900px),
+(max-height: 500px) {
+    :root {
+        --button-margin: 8px;
+    }
+
+    body,
+    html,
+    #wrap {
+        font: 18px "Computer Modern Serif", serif;
+    }
+
+    input {
+        font: 18px "Roboto Mono", Consolas, monospace;
+        width: 90%;
+    }
+
+    .round-button {
+        font-size: 24px !important;
+        width: 44px;
+        height: 44px;
+        border-radius: 22px;
+    }
+
+    button {
+        font-size: 22px;
+        padding: 1px 8px;
+        height: 44px;
+        color: black;
+    }
+
+    #skip-questions {
+        bottom: var(--button-margin);
+    }
+
+    #question-number {
+        bottom: 16px;
+    }
+
+    .question-text {
+        margin-bottom: 4px;
+    }
+
+    .slide {
+        top: calc(50% - 2px);
+    }
+
+    .top-button {
+        font-size: 20px !important;
+        width: 36px;
+        height: 36px;
+        border-radius: 18px;
+        padding: 4px;
+    }
+
+    .full-page-popup {
+        margin-top: 43px;
+        height: calc(100% - 43px);
+    }
+
+    #privacy-button {
+        padding: 3.5px 9px;
+    }
+
+    .popup-wrap>p,
+    .popup-wrap>*>li {
+        width: 100%;
+        font-size: 18px;
+        text-align: left;
+    }
+
+    .popup-wrap button {
+        font-size: 18px;
+        margin: 8px 0px 0px 0px;
+        height: auto;
+    }
+
+    .popup-wrap>h2 {
+        margin: 12px 0;
+    }
+}
