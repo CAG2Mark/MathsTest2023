@@ -97,6 +97,7 @@ function getConcatedAnswers(n = -1) {
             val += q.getAnswer() + ";";
         }
         catch (error) {
+            console.log(error);
             return {val: null, errorQs: q.qNum}
         }
     }
@@ -112,12 +113,6 @@ ignInput.addEventListener("focusout", (e) => {
 })
 
 ignInput.value = config.ign;
-
-document.getElementById("q18-image").addEventListener("contextmenu", (e) => {
-    e.preventDefault();
-    alert("You really thought I would let you reverse image search it directly? Lmao no")
-    document.body.classList.add("LMAO-you-are-doing-the-inspect-element-of-shame-after-right-clicking-question-18s-image")
-});
 
 function createHashes() {
     let script = document.createElement('script');

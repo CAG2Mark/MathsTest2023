@@ -14,7 +14,7 @@ const customLaTeX = {
         return `\\binom{${node.args[0].toTex(options)}}{${node.args[1].toTex(options)}}`;
     },
     'nPr': function (node, options) { 
-        return `\\mathrm{nPr}(${node.args[0].toTex(options)},${node.args[1].toTex(options)})`;
+        return `P^{${node.args[0].toTex(options)}}_{${node.args[1].toTex(options)}}`;
     },
 }
 

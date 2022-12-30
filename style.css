@@ -5,7 +5,7 @@
 body,
 html,
 #wrap {
-    font: 36px "Computer Modern Serif", serif;
+    font: 28px "Computer Modern Serif", serif;
     user-select: none;
     -webkit-user-select: none;
 
@@ -79,7 +79,7 @@ html,
     -moz-border-radius: 40px;
     -ms-border-radius: 40px;
     -o-border-radius: 40px;
-    font-size: 36px !important;
+    font-size: 30px !important;
 }
 
 button {
@@ -93,7 +93,7 @@ button {
     -o-border-radius: 8px;
 
     font-family: "Computer Modern Serif", serif;
-    font-size: 36px;
+    font-size: 30px;
     padding: 8px;
     margin: 8px;
 }
@@ -131,7 +131,7 @@ button:focus {
 
 #skip-questions {
     position: absolute;
-    bottom: 19px;
+    bottom: 23px;
     left: 50%;
     transform: translateX(-50%);
     margin-left: 0;
@@ -139,7 +139,7 @@ button:focus {
 
 #question-number {
     position: absolute;
-    bottom: 28px;
+    bottom: 32px;
     left: 50%;
     width: 80px;
     text-align: center;
@@ -240,7 +240,7 @@ p {
     0% {
         left: 50%
     }
-    
+
     100% {
         left: 200%
     }
@@ -278,7 +278,7 @@ p {
 input {
     width: 800px;
     padding: 0px 8px 0 8px;
-    font: 36px "Roboto Mono", Consolas, monospace;
+    font: 28px "Roboto Mono", Consolas, monospace;
     border-radius: 6px;
     border-width: 2px;
     border-color: #CCCCCC;
@@ -288,6 +288,53 @@ input {
     transition: 200ms border-color, 200ms background-color, 200ms color;
 
     margin: 0 auto 8px auto;
+
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+    /* Opera/IE 8+ */
+}
+
+.input-warning input {
+    border-color: #ffcd4d !important;
+    padding-right: 40px;
+}
+
+.input-wrap {
+    position: relative;
+}
+
+.input-warning .question-warning-button {
+    display: block !important;
+}
+
+.question-warning-button {
+    position: absolute;
+    right: 0;
+    top: -5px;
+    background-color: transparent !important;
+    margin: 0;
+    display: none;
+    cursor: pointer;
+}
+
+.question-warning-button>span {
+    opacity: 0.2;
+    transition: 200ms opacity;
+}
+
+.question-warning-button:hover>span {
+    opacity: 0.4;
+}
+
+.warning-box {
+    width: 800px;
+}
+
+.hidden {
+    display: none;
 }
 
 .dark-mode input {
@@ -427,32 +474,42 @@ body.dark-mode,
 }
 
 .checkpoint-correct {
+    max-width: calc(100% - 32px);
     text-align: center;
+    position: relative;
 }
+
 .checkpoint-correct p {
     text-align: center;
     margin-bottom: 4px !important;
     width: 100%;
 }
+
 .checkpoint-error {
     display: inline-block;
     text-align: center;
 }
-.checkpoint > h2 {
+
+.checkpoint>h2 {
     margin-bottom: 4px;
 }
+
 .checkpoint p {
     margin-bottom: 0;
 }
-.checkpoint-error > p {
+
+.checkpoint-error>p {
     width: 100%;
 }
+
 .checkpoint-hidden {
     display: none !important;
 }
+
 .dark-mode .checkpoint-msg-container {
-    border: solid 2px rgb(124, 124, 124); 
+    border: solid 2px rgb(124, 124, 124);
 }
+
 .checkpoint-msg-container {
     transition: 300ms border-color, 300ms background, 300ms color;
     padding: 16px;
@@ -526,7 +583,7 @@ body.dark-mode,
     -webkit-user-select: text;
 
     margin-bottom: 8px;
-    
+
     max-width: calc(100% - 32px);
 }
 
@@ -631,6 +688,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         width: 90%;
     }
 
+    .warning-box {
+        width: 90%;
+    }
+
     .round-button {
         font-size: 24px !important;
         width: 44px;
@@ -693,5 +754,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
     .popup-wrap>h2 {
         margin: 12px 0;
+    }
+
+    .question-warning-button {
+        top: -4px;
+    }
+
+    .question-warning-button>img {
+        opacity: 0.2;
+        transition: 200ms opacity;
+        height: 30px;
     }
 }

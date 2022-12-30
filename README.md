@@ -1,9 +1,14 @@
-# MathsTestNew
-This is a maths test I created as an Aprils Fools joke.
+# MathsTest2023
+This is the 2023 iteration of my very fun maths test.
 
 However, this project *does* provide a useful framework for creating client-side maths quizzes that auto-check your answers without revealing the answers themselves.
 
 A live demo is available [here](https://mathstest.markng.com/).
+# Improvements over the 2022 version
+* Dummy questions can now be added.
+* The system can now detect potential errors in your answer. For example, `math.js` will read `xy` as a single variable, and `x(x+1)` as a function call. However, this is often not desirable. These are now detected and the user is warned.
+* Fixed mobile UI bugs.
+* Made the UI a bit smaller.
 # Explanation
 This framework checks the user's answers by evaluating their concatenated hashes and comparing them to the hashes of the correct answers.
 

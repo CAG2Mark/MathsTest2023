@@ -12,18 +12,23 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC&family=Roboto+Mono&display=swap" rel="stylesheet"> 
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css" integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC&family=Roboto+Mono&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+        integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ" crossorigin="anonymous">
 
     <!-- The loading of KaTeX is deferred to speed up page rendering -->
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js"
+        integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"
+        crossorigin="anonymous"></script>
 
     <!-- To automatically render math in text elements, include the auto-render extension: -->
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+        integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
         onload="renderMathInElement(document.body);"></script>
 
-    <title>Harder</title>
+    <title>Difficult</title>
 </head>
 
 <body class="no-animation">
@@ -32,7 +37,16 @@
 
     <div id="question-template" class="slide question question-template">
         <p class="question-text">Test</p>
-        <input class="question-input" type="text">
+        <span class="input-wrap">
+            <input class="question-input" type="text">
+            <button class="question-warning-button">
+                <span class="material-icons">
+                    warning
+                </span>
+            </button>
+        </span>
+
+        <div class="warning-box hidden"></div>
         <p>Your answer: <span class="question-answer-preview"></span></p>
     </div>
 
@@ -46,7 +60,7 @@
             </div>
             <p class="checkpoint-incorrect checkpoint-hidden">Sorry, at least one thus far is incorrect.</p>
             <div class="checkpoint-error checkpoint-hidden">
-                <p>There was an error evaluating your answer for question 
+                <p>There was an error evaluating your answer for question
                     #<span class="checkpoint-error-num"></span>.</p>
                 <button class="checkpoint-error-redirect-button">Take me there.</button>
             </div>
@@ -55,18 +69,19 @@
     </div>
 
     <div id="top-row">
-        <form action="https://github.com/CAG2Mark/MathsTestNew" method="get" target="_blank">
-            
+        <form action="https://github.com/CAG2Mark/MathsTest2023" method="get" target="_blank">
+
         </form>
         <button aria-label="View source code" id="source-code-button" class="top-button material-icons"
-            onclick="window.open('https://github.com/CAG2Mark/MathsTestNew', '_blank').focus()">code</button>
+            onclick="window.open('https://github.com/CAG2Mark/MathsTest2023', '_blank').focus()">code</button>
         <button aria-label="View help" id="help-button" class="top-button material-icons">help</button>
         <!--
         <button aria-label="Manage cookie settings" id="cookies-button" class="top-button material-icons">cookie</button>
         -->
         <button aria-label="View privacy Information" id="privacy-button" class="top-button">Privacy</button>
-        <button aria-label="Toggle dark mode" id="dark-mode-button" class="top-button material-icons">brightness_4</button>
-    </div> 
+        <button aria-label="Toggle dark mode" id="dark-mode-button"
+            class="top-button material-icons">brightness_4</button>
+    </div>
 
     <!-- cookies used here can be deemed strictly necessary and are hence not required -->
     <!--
@@ -126,37 +141,38 @@
             </p>
             <p>
                 In fact, if your answer does not have an exact decimal representation,
-                you must type in the exact answer (in terms of 
+                you must type in the exact answer (in terms of
                 \(\cos, \sin, e, \pi, \text{etc.}\)). The precision used your answer is checked to is greater than
-                that of most calculators. For example, if the answer is \(e^{\cos 2}\), you must
-                enter your answer as <span class="mono">e^cos(2)</span> and not <span class="mono">0.65958</span>.
+                that of most calculators. For example, if the answer is \(e^{\cos 2}\), you must not enter your answer
+                as <span class="mono">0.65958</span>,
+                but instead something like <span class="mono">e^cos(2)</span>.
             </p>
             <p>
-                The functions you may use can be found here: 
-                <a href="https://mathjs.org/docs/reference/functions.html">functions</a>, 
+                The functions you may use can be found here:
+                <a href="https://mathjs.org/docs/reference/functions.html">functions</a>,
                 <a href="https://mathjs.org/docs/reference/constants.html">constants</a>.
-                Not all of these will work in the input field, but simple elemetary functions 
+                Not all of these will work in the input field, but simple elemetary functions
                 and common constants should work. To use \(\pi\) for example, simply type
                 <span class="mono">pi</span>. To calculate \(\cos(1)\), simply enter
-                <span class="mono">cos(1)</span>. Note that all trigonometric and 
+                <span class="mono">cos(1)</span>. Note that all trigonometric and
                 hyperbolic functions use radians as both of their input and output units.
             </p>
             <p>The following manually added / renamed functions are also available:
-                <ul class="mono">
-                    <li>arcsin(x)</li>
-                    <li>arccos(x)</li>
-                    <li>arctan(x)</li>
-                    <li>arcsinh(x)</li>
-                    <li>arccosh(x)</li>
-                    <li>arctanh(x)</li>
-                    <li>ln(x)</li>
-                    <li>nCr(n,r)</li>
-                    <li>nPr(n,r)</li>
-                </ul>
+            <ul class="mono">
+                <li>arcsin(x)</li>
+                <li>arccos(x)</li>
+                <li>arctan(x)</li>
+                <li>arcsinh(x)</li>
+                <li>arccosh(x)</li>
+                <li>arctanh(x)</li>
+                <li>ln(x)</li>
+                <li>nCr(n,r)</li>
+                <li>nPr(n,r)</li>
+            </ul>
             </p>
             <p>
                 If you use undefined constants or functions, it may not error
-                until you submit your answers at the end, which is when 
+                until you submit your answers at the end, which is when
                 answers are checked.
             </p>
             <p>
@@ -166,32 +182,34 @@
                 is in terms of constants and variables from the question, or whether it is
                 a numerical value.
             </p>
+            <p>
+                <b>Your answers will be saved between sessions.</b>
+            </p>
             <h2>Submitting answers</h2>
             <p>
                 Apart from the tutorial questions, your answers will not be checked as
                 you type them. This is to prevent brute-forcing the answer to each
                 individual question. Moreover, the system is designed so that it can only
-                tell if <it>all</it> the answers are correct. It is physically impossible
-                to check individual answers by looking at the source code. Thus, you will
-                not know which question is incorrect until you get them all right.
+                tell if <it>all</it> the answers are correct up up to a checkpoint; even the system does not know
+                whether you are right until all answers up to a checkpoint are correct.
             </p>
             <p>
                 However, if there is an error evaluating a certain answer you inputted,
                 then you will be told which question that was so you can correct it.
             </p>
         </div>
-    </div> 
+    </div>
 
     <div id="privacy-popup" class="full-page-popup">
         <div class="popup-wrap">
             <p>
                 This website is purely client-side and does not store identifiable user data on any server.
-                The developer has made no efforts to send any user-generated data to any server. 
+                The developer has made no efforts to send any user-generated data to any server.
                 This can be verified by viewing the source code of this project.
             </p>
             <p>
-                However, this site is hosted on Cloudflare Pages, and hence is on Cloudflare's network. 
-                Thus, usage of this site may be subject to Cloudflare's privacy policy (available 
+                However, this site is hosted on Cloudflare Pages, and hence is on Cloudflare's network.
+                Thus, usage of this site may be subject to Cloudflare's privacy policy (available
                 <a href="https://www.cloudflare.com/en-gb/privacypolicy/">here</a>).
             </p>
             <p>
@@ -210,17 +228,21 @@
 
         <div class="slide starting-slide">
             <p><b>Welcome</b></p>
-            <p>Welcome to the new maths test website. The next four pages will be tutorial questions
-                to teach you how to input answers into the new system. Your answers to these questions
-                will not affect the final result - you can skip them if you wish. After those
-                come the real questions, which you will have to answer.
-            </p>
-            <p>Your answers will be saved automatically between sessions, provided you
-                do not access this site in incognito/private mode or disable/clear your browser's local storage.
-            </p>
-            <p>
-                Oh, and don't try to cheat by looking at the source code. It won't work, and
-                you might even get misled.
+            <p>me when complex eigenvalue conjugate pair and the operator is real and make 2d subspaces of vector space
+                go brrrrrr :spin: :spin: and make cool matrix like
+                \[
+                \begin{bmatrix}
+                \lambda_1 &&&&&&0\\
+                &\lambda_2&&&&&\\
+                &&\ddots&&&&\\
+                &&&\cos \theta & -\sin \theta&&\\
+                &&&\sin \theta & \cos \theta&&\\
+                &&&&&\ddots&\\
+                0&&&&&&\lambda_n
+                \end{bmatrix}
+                \]
+                and go WHEEEEEEEEEEEE oh right there's 4 tutorial questions which you can skip and then the real
+                questions begin HAVE FUN
             </p>
         </div>
 
@@ -230,7 +252,7 @@
                 <p>There was an error evaluating your answer for question #<span id="error-question-num"></span>.</p>
                 <button id="error-redirect-button">Take me there.</button>
             </div>
-            <div class="end-page end-page-hidden"  id="incorrect-page">
+            <div class="end-page end-page-hidden" id="incorrect-page">
                 <p>Sorry, you got one or more questions wrong. Try again.</p>
             </div>
             <div class="end-page end-page-hidden" id="correct-page">
