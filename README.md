@@ -9,6 +9,7 @@ A live demo is available [here](https://mathstest.markng.com/).
 * The system can now detect potential errors in your answer. For example, `math.js` will read `xy` as a single variable, and `x(x+1)` as a function call. However, this is often not desirable. These are now detected and the user is warned.
 * Fixed mobile UI bugs.
 * Made the UI a bit smaller.
+* Updated to the newest version of `math.js`.
 # Explanation
 This framework checks the user's answers by evaluating their concatenated hashes and comparing them to the hashes of the correct answers.
 
