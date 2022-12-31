@@ -54,7 +54,7 @@ function checkAnswers(n = -1) {
     let ign = ignInput.value;
 
     if (!ign.trim()) {
-        alert("Please enter your IGN on the first page.")
+        alert("Please enter your nickname/IGN on the first page.")
         return;
     }
 

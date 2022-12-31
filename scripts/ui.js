@@ -13,6 +13,11 @@ function transition(index) {
 
     if (index >= children.length) return;
 
+    if (slide == 0 && !ignInput.value) {
+        alert("Please enter your nickname!");
+        return;
+    }
+
     let ltoR = index > slide;
 
     let s1 = children[slide];
@@ -38,12 +43,11 @@ function transition(index) {
 
     let s2Anim = ltoR ? "right-in" : "left-in";
     let s1Anim = !ltoR ? "right-out" : "left-out";
-    //$(s2).css("left", ltoR ? "200%" : "-100%");
+
     s2.classList.add("slide-visible");
     s2.classList.add(s2Anim);
+
     s1.classList.add(s1Anim);
-    //$(s1).animate({left: !ltoR ? "200%" : "-100%"});
-    //$(s2).animate({left: "50%"});
 
     setTimeout(() => {
         s1.classList.remove(s1Anim);

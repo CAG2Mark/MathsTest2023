@@ -42,7 +42,7 @@ html,
 }
 
 .mono {
-    font: 0.8em 'Roboto Mono', Consolas, monospace;
+    font: 0.8em 'JetBrainsMono', Consolas, monospace;
     user-select: text;
 }
 
@@ -83,7 +83,7 @@ html,
 }
 
 button {
-    transition: 150ms background-color, 300ms color;
+    transition: 200ms background-color, 200ms color;
     border-color: transparent;
     background-color: #EEEEEE;
     border-radius: 8px;
@@ -208,41 +208,41 @@ p {
 
 @keyframes left-in-anim {
     0% {
-        left: -100%
+        transform: translate(-200%, -50%);
     }
 
     100% {
-        left: 50%
+        transform: translate(-50%, -50%);
     }
 }
 
 @keyframes left-out-anim {
     0% {
-        left: 50%
+        transform: translate(-50%, -50%);
     }
 
     100% {
-        left: -100%
+        transform: translate(-200%, -50%);
     }
 }
 
 @keyframes right-in-anim {
     0% {
-        left: 200%
+        transform: translate(100%, -50%);
     }
 
     100% {
-        left: 50%
+        transform: translate(-50%, -50%);
     }
 }
 
 @keyframes right-out-anim {
     0% {
-        left: 50%
+        transform: translate(-50%, -50%);
     }
 
     100% {
-        left: 200%
+        transform: translate(100%, -50%);
     }
 }
 
@@ -252,9 +252,8 @@ p {
 }
 
 .left-out {
-    animation-name: left-out-anim;
+    animation-name: left-out-anim !important;
     animation-duration: 400ms;
-    left: -100%;
 }
 
 .right-in {
@@ -265,7 +264,6 @@ p {
 .right-out {
     animation-name: right-out-anim;
     animation-duration: 400ms;
-    left: 200%;
 }
 
 .slide-visible {
@@ -277,8 +275,8 @@ p {
 
 input {
     width: 800px;
-    padding: 0px 8px 0 8px;
-    font: 28px "Roboto Mono", Consolas, monospace;
+    padding: 2px 8px 0 8px;
+    font: 28px "JetBrainsMono", Consolas, monospace;
     border-radius: 6px;
     border-width: 2px;
     border-color: #CCCCCC;
@@ -366,7 +364,7 @@ input:focus,
 body,
 .full-page-popup,
 #top-row {
-    transition: background-color 300ms, color 300ms;
+    transition: 200ms background-color, 200ms color;
     background-color: white;
     color: #0c0c0c;
 }
@@ -432,12 +430,12 @@ body.dark-mode,
 
 .opacity-animate-out {
     animation-name: opacity-out;
-    animation-duration: 300ms;
+    animation-duration: 200ms;
 }
 
 .opacity-animate-in {
     animation-name: opacity-in;
-    animation-duration: 300ms;
+    animation-duration: 200ms;
     opacity: 1;
     visibility: visible;
 }
@@ -511,7 +509,7 @@ body.dark-mode,
 }
 
 .checkpoint-msg-container {
-    transition: 300ms border-color, 300ms background, 300ms color;
+    transition: 200ms border-color, 200ms background, 200ms color;
     padding: 16px;
     border-radius: 10px;
     border: solid 2px rgb(92, 92, 92);
@@ -534,7 +532,7 @@ body.dark-mode,
     }
 
     input {
-        font: 24px "Roboto Mono", Consolas, monospace;
+        font: 24px "JetBrainsMono", Consolas, monospace;
     }
 
     .round-button {
@@ -572,15 +570,16 @@ body.dark-mode,
 }
 
 .code-out {
-    transition: 300ms background-color, 300ms color;
+    transition: 200ms background-color;
 
-    font: 20px 'Roboto Mono', Consolas, monospace;
+    font: 20px 'JetBrainsMono', Consolas, monospace;
+    text-align: center;
     word-wrap: break-word;
     padding: 12px;
     background-color: #dbdbdb;
     border-radius: 10px;
     user-select: all;
-    -webkit-user-select: text;
+    -webkit-user-select: all;
 
     margin-bottom: 8px;
 
@@ -592,7 +591,7 @@ body.dark-mode,
 }
 
 .end-page {
-    transition: 300ms border-color, 300ms background, 300ms color;
+    transition: 200ms border-color, 200ms background;
 
     padding: 16px;
     border-radius: 10px;
@@ -684,7 +683,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
 
     input {
-        font: 18px "Roboto Mono", Consolas, monospace;
+        font: 18px "JetBrainsMono", Consolas, monospace;
         width: 90%;
     }
 
@@ -754,6 +753,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
     .popup-wrap>h2 {
         margin: 12px 0;
+    }
+
+    .code-out {
+        font: 16px 'JetBrainsMono', Consolas, monospace;
     }
 
     .question-warning-button {
