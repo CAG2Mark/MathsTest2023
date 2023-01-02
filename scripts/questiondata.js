@@ -5,7 +5,7 @@ const AnswerType = {
 }
 
 // after question p, q, r, etc
-var cp_pos = [4, 6, 8, 9, 11];
+var cp_pos = [4, 6, 8, 9, 11, 14];
 
 const ANS_HASH = "333b08017fac3a294ce7cb859ef6823944b18968350e88d639d03d6d850e960b";
 const CHECKPOINT_HASHES = ['4855fdefbdc8028668dbb5fcf0592cead7ee0437e916983394767939e75bf0d7', '569d838ec99ac3d315f968b435d4b56b1870becee3246484804389a78e164fe9', 'b6072eebf0d796bf4dfd7fafa1d68087c6cacac81508f241288be88b25b45f09', '5652c7ca86811657f844d392e2b0d14870ae8d6d1762ec0fc6c26b55d31cda8d', 'f3a0f8af37c097c731664fb8c71f5877c9a2abc7b0d8b957198497ae38d2b482']
@@ -155,7 +155,7 @@ var questionsData = [
     },
     {
         id: "cosine",
-        prompt: `Find \\(f(x) = c_0 + c_1x^2\\) such that it is the best appromation to \\(\\cos x\\) in the range \\([-\\pi, \\pi]\\), i.e.:
+        prompt: `Find \\(f(x) = c_0 + c_1x^2\\) such that it is the best approximation to \\(\\cos x\\) in the range \\([-\\pi, \\pi]\\), i.e.:
         \\[
             \\int^{\\pi}_{-\\pi} |f(x) - \\cos x|^2 \\, \\mathrm{d} x
         \\]
@@ -191,6 +191,26 @@ var questionsData = [
         prompt: `Find the volume bounded by the surface \\((x^2 + y^2 + z^2)^2 = a^2(x^2 + y^2 - z^2)\\) for \\(a \\in \\mathbb{R}\\). (Hint: spherical coordinates.)`,
         answerType: AnswerType.FUNCTION,
         signatureTests: [{ "a": 1 }, { "a": 0 }, { "a": -1 }, { "a": 5 }, { "a": 8 }, { "a": 9.5 }, { "a": 10 }],
+        isTutorial: false
+    },
+    {
+        id: "vectorfield",
+        prompt: `Let \\(V = \\{ (f, g, h) : f, g, h \\in P_n \\}\\), where \\(P_n\\) represents all \\(n\\)th-degree polynomials, be a vector space. 
+        Let \\(W\\) the subsapce of all conservative vector fields on \\(\\mathbb{R}^3\\), i.e. for any simply connected curve \\(C\\), we have:
+        \\[ 
+            \\mathbf{F} \\in W \\implies \\oint_C \\mathbf{F} \\cdot \\mathrm{d} \\mathbf{r} = 0
+        \\]
+        Find \\(\\dim (V \\cap W)\\).
+        `,
+        answerType: AnswerType.FUNCTION,
+        signatureTests: [{ "n": 1 }, { "n": 2 }, { "n": 3 }, { "n": 4 }, { "n": 7 }, { "n": 10 }, { "n": 50 }, { "n": 100 }],
+        isTutorial: false
+    },
+    {
+        id: "casino",
+        prompt: `LogicBugs wants to open a casino, where if you play two diamonds, you have a probability \\(p\\) of winning back three diamonds. Find the probability that you make a profit if you play \\(n\\) times.`,
+        answerType: AnswerType.FUNCTION,
+        signatureTests: [{ "p": 0.3, "n": 1 }, { "p": 0.4, "n": 3 }, { "p": 0.5, "n": 6 }, { "p": 0.6, "n": 8 }, { "p": 0.75, "n": 10 }, { "p": 0.8, "n": 15 }, { "p": 0, "n": 20 }, { "p": 1, "n": 1 }, { "p": 1, "n": 0 }, { "p": 0.5, "n": 0 }],
         isTutorial: false
     },
 ];
