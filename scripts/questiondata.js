@@ -42,7 +42,7 @@ var questionsData = [
         prompt: `(Tutorial #3) For some questions, you may be asked to enter
         a function or expression. For example, if the question is asking for the product of
         \\(|xy-x|\\) and \\(|xy+x|\\), you could type <span class="mono">abs((x*y)^2 - x^2)</span> or
-        <span class="mono">abs(xy-x) * abs(xy+y)</span>. All of these will be correct.`,
+        <span class="mono">abs(xy-x) * abs(xy+x)</span>. All of these will be correct.`,
         answerType: AnswerType.FUNCTION,
         signatureTests: [{ "x": 1, "y": 1 }, { "x": -100, "y": 2 }, { "x": 2, "y": 0.51234 }, { "x": 4.5123, "y": 1 }, { "x": 7, "y": 0 }, { "x": 100, "y": 2 }, { "x": 0, "y": 0 }],
         isTutorial: true,

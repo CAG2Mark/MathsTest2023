@@ -53,7 +53,7 @@
 
     <div id="checkpoint-template" class="slide checkpoint">
         <h2>Checkpoint <span class="checkpoint-number"></span></h2>
-        <button class="checkpoint-button">Check Answers</button>
+        <button class="checkpoint-button" class="styled-button">Check Answers</button>
         <div class="checkpoint-msg-container checkpoint-hidden">
             <div class="checkpoint-correct checkpoint-hidden">
                 <p>All questions thus far are correct. Checkpoint code:</p>
@@ -63,7 +63,7 @@
             <div class="checkpoint-error checkpoint-hidden">
                 <p>There was an error evaluating your answer for question
                     #<span class="checkpoint-error-num"></span>.</p>
-                <button class="checkpoint-error-redirect-button">Take me there.</button>
+                <button class="checkpoint-error-redirect-button" class="styled-button">Take me there.</button>
             </div>
         </div>
 
@@ -212,11 +212,11 @@
             </div>
 
             <div id="questions-end" class="slide">
-                <button id="get-code-button">Check Answers</button>
+                <button id="get-code-button" class="styled-button">Check Answers</button>
                 <div class="end-page end-page-hidden" id="error-page">
                     <p>There was an error evaluating your answer for question #<span id="error-question-num"></span>.
                     </p>
-                    <button id="error-redirect-button">Take me there.</button>
+                    <button id="error-redirect-button" class="styled-button">Take me there.</button>
                 </div>
                 <div class="end-page end-page-hidden" id="incorrect-page">
                     <p>Sorry, you got one or more questions wrong. Try again.</p>
@@ -233,7 +233,7 @@
         <div id="bottom-row">
             <button title="Previous Page" id="back" class="material-icons round-button"
                 style="display: none">arrow_back</button>
-            <button title="Skip Tutorial Questions" id="skip-questions" style="display: none">(Skip)</button>
+            <button title="Skip Tutorial Questions" id="skip-questions" class="styled-button" style="display: none">(Skip)</button>
             <input title="Question Number" type="number" id="question-number" min="1" style="display: none"
                 class="styled-input">
             <button title="Next Page" id="forward" class="material-icons round-button">arrow_forward</button>
