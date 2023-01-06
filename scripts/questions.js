@@ -29,6 +29,14 @@ class Question {
 
         this.promptBox.innerHTML = (isTutorial ? "" : `(Q${qNum})<br>`) + this.prompt;
 
+        this.inputBox.addEventListener("keydown", (e) => {
+            if (e.keyCode == 13 && !e.shiftKey) {
+                goNextSlide(true);
+                e.preventDefault();
+                return;
+            }
+        })
+
         this.inputBox.addEventListener("keyup", (e) => {
             this.updateAnswer();
             config.questionAnswers[this.id] = this.getAnswerInput();
@@ -126,6 +134,7 @@ class Question {
                     this.warningBox.classList.add("hidden");
                 }
             }
+            
 
             let tex = parsed
                 .toTex(texOptions)
@@ -135,6 +144,7 @@ class Question {
                 .replaceAll("phi", "varphi")
                 .replaceAll("varepsilon", "epsilon")
                 .replaceAll("epsilon", "varepsilon");
+                
             if (this.answerType == AnswerType.NUMBER) {
                 let evaled_ = math.evaluate(answer);
                 let evaled = evaled_.toFixed(6);

@@ -81,9 +81,9 @@ const customFunctions = {
     arccos: Math.acos,
     arctan: Math.atan,
     arcsin: Math.asin,
-    arcsinh: Math.asinh,
-    arccosh: Math.acosh,
-    arctanh: Math.atanh,
+    arsinh: Math.asinh,
+    arcosh: Math.acosh,
+    artanh: Math.atanh,
     nCr: nCr,
     nPr: nPr,
 }
@@ -164,7 +164,7 @@ class MathFunction {
         let thisSig = this.getSignature(vals);
         let thatSig = that.getSignature(vals);
         for (let i = 0; i < thisSig.length; ++i) {
-            if (!signaturesEqual(thisSig[i], thatSig[i])) return false;
+            if (!signaturesEqual(thisSig[i].signature, thatSig[i].signature)) return false;
         }
         return true;
     }

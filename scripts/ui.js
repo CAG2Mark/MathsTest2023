@@ -8,7 +8,7 @@ var startCnt = document.getElementsByClassName("starting-slide").length;
 var startingSlideCnt = startCnt + tutorialQuestionsCnt;
 
 // FYI this is very dirty
-function transition(index) {
+function transition(index, refocus = false) {
     if (index == slide) return;
 
     if (index >= children.length) return;
@@ -51,24 +51,33 @@ function transition(index) {
 
     setTimeout(() => {
         s1.classList.remove(s1Anim);
-        s1.classList.remove("slide-visible")
+        s1.classList.remove("slide-visible");
+        
+        if (!refocus) return;
+        let inputs = s2.getElementsByClassName("question-input");
+        if (inputs.length <= 0) return;
+        inputs[0].focus();
     }, 350);
     setTimeout(() => {
         s2.classList.remove(s2Anim);
     }, 400);
 }
 
-document.getElementById("back").addEventListener("click", (o,e) => {
+function goPrevSlide() {
     if (slide == 0) return;
     transition(slide - 1);
-})
+}
 
-document.getElementById("forward").addEventListener("click", (o,e) => {
+function goNextSlide(refocus = false) {
     if (slide == children.length - 1) return;
-    transition(slide + 1);
-})
+    transition(slide + 1, refocus);
+}
 
-document.getElementById("skip-questions").addEventListener("click", (o,e) => {
+document.getElementById("back").addEventListener("click", goPrevSlide);
+
+document.getElementById("forward").addEventListener("click", (e) => goNextSlide());
+
+document.getElementById("skip-questions").addEventListener("click", (o, e) => {
     transition(startingSlideCnt);
 });
 
@@ -95,13 +104,13 @@ setTimeout(() => {
 }, 100);
 
 var privacyButton = document.getElementById("privacy-button");
-var privacyPage = document.getElementById("privacy-popup"); 
+var privacyPage = document.getElementById("privacy-popup");
 
 var helpButton = document.getElementById("help-button");
-var helpPage = document.getElementById("help-popup"); 
+var helpPage = document.getElementById("help-popup");
 
 var popups = [
-    [privacyPage, privacyButton, false], 
+    [privacyPage, privacyButton, false],
     [helpPage, helpButton, false]
 ]
 
@@ -123,7 +132,7 @@ function updatePopupPage(popupTuple, show) {
         for (let i = 0; i < popups.length; ++i) {
             let cur = popups[i];
             if (cur === popupTuple) continue;
-            
+
             updatePopupPage(cur, false);
         }
         popupIn(popupTuple);

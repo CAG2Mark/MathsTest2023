@@ -5,10 +5,10 @@ const AnswerType = {
 }
 
 // after question p, q, r, etc
-var cp_pos = [4, 6, 8, 9, 11, 14];
+var cp_pos = [4, 6, 8, 9, 11, 13, 16];
 
-const ANS_HASH = "333b08017fac3a294ce7cb859ef6823944b18968350e88d639d03d6d850e960b";
-const CHECKPOINT_HASHES = ['4855fdefbdc8028668dbb5fcf0592cead7ee0437e916983394767939e75bf0d7', '569d838ec99ac3d315f968b435d4b56b1870becee3246484804389a78e164fe9', 'b6072eebf0d796bf4dfd7fafa1d68087c6cacac81508f241288be88b25b45f09', '5652c7ca86811657f844d392e2b0d14870ae8d6d1762ec0fc6c26b55d31cda8d', 'f3a0f8af37c097c731664fb8c71f5877c9a2abc7b0d8b957198497ae38d2b482']
+const ANS_HASH = "395c969cf4d4e8e7a9d0c909b547965db82c8af76d61325126a9fcd12eb0a89f";
+const CHECKPOINT_HASHES = ['4855fdefbdc8028668dbb5fcf0592cead7ee0437e916983394767939e75bf0d7', '569d838ec99ac3d315f968b435d4b56b1870becee3246484804389a78e164fe9', 'b6072eebf0d796bf4dfd7fafa1d68087c6cacac81508f241288be88b25b45f09', '5652c7ca86811657f844d392e2b0d14870ae8d6d1762ec0fc6c26b55d31cda8d', 'f3a0f8af37c097c731664fb8c71f5877c9a2abc7b0d8b957198497ae38d2b482', '333b08017fac3a294ce7cb859ef6823944b18968350e88d639d03d6d850e960b', 'f5b37cb5361ac0c7d65fcab500212ab7877809a604615edb43b6d2a58cd3cc7d'];
 
 var questionsData = [
     {
@@ -41,16 +41,12 @@ var questionsData = [
         id: "tut3",
         prompt: `(Tutorial #3) For some questions, you may be asked to enter
         a function or expression. For example, if the question is asking for the product of
-        \\(|x-1|\\) and \\(|x+1|\\), you could type <span class="mono">abs(x^2-1)</span> or
-        <span class="mono">abs(x-1) * abs(x+1)</span>. All of these will be correct. You can also
-        use the same functions introduced in the previous slide.
-        <br>NOTE: When entering the product of lone varables, for example \\(ab\\), 
-        please type something like <span class="mono">a*b</span>
-        instead of <span class="mono">ab</span>. Otherwise, this may cause errors.`,
+        \\(|xy-x|\\) and \\(|xy+x|\\), you could type <span class="mono">abs((x*y)^2 - x^2)</span> or
+        <span class="mono">abs(xy-x) * abs(xy+y)</span>. All of these will be correct.`,
         answerType: AnswerType.FUNCTION,
-        signatureTests: [{ x: 1 }, { x: -100 }, { x: 2 }, { x: 4.5123 }, { x: 7 }, { x: 100 }, { x: 0 }],
+        signatureTests: [{ "x": 1, "y": 1 }, { "x": -100, "y": 2 }, { "x": 2, "y": 0.51234 }, { "x": 4.5123, "y": 1 }, { "x": 7, "y": 0 }, { "x": 100, "y": 2 }, { "x": 0, "y": 0 }],
         isTutorial: true,
-        tutorialAnswer: "abs(x^2-1)",
+        tutorialAnswer: "abs((x*y)^2 - x^2)",
     },
     {
         id: "tut4",
@@ -148,7 +144,7 @@ var questionsData = [
         <br><br>
         How many \\(CAG\\)-strings of length \\(k\\) are there? 
         <br>
-        Note: you can use <span class="mono">floor(x)</span> as floor function, <span class="mono">nCr(a,b)</span> to compute combinations, and <span class="mono">%</span> to compute mod. Also, assume that if \\(n < r\\), then \\(\\binom{n}{r} = 0\\).`,
+        Note: you can use <span class="mono">floor(x)</span> as the floor function, <span class="mono">nCr(a,b)</span> to compute combinations, and <span class="mono">%</span> to compute mod. Also, assume that if \\(n < r\\), then \\(\\binom{n}{r} = 0\\).`,
         answerType: AnswerType.FUNCTION,
         signatureTests: [{ "k": 0 }, { "k": 1 }, { "k": 2 }, { "k": 3 }, { "k": 4 }, { "k": 5 }, { "k": 6 }, { "k": 7 }, { "k": 8 }, { "k": 9 }, { "k": 10 }, { "k": 11 }, { "k": 12 }, { "k": 13 }, { "k": 14 }, { "k": 15 }, { "k": 30 },],
         isTutorial: false
@@ -178,7 +174,7 @@ var questionsData = [
     },
     {
         id: "riemannzeta",
-        prompt: `Suppose \\(\\displaystyle\\sum^\\infty_{k=1} k = -\\frac{1}{12}\\). Using this, give a real number \\(a \\neq \\frac{1}{2}\\) such that 
+        prompt: `Assuming that \\(\\displaystyle\\sum^\\infty_{k=1} \\frac{1}{k^{-1}} = -\\frac{1}{12} = \\zeta(-1)\\), give a real number \\(a \\neq \\frac{1}{2}\\) such that 
         \\[\\exists b \\in \\mathbb{R}: \\zeta(a + bi) = 0\\]
         where \\(\\zeta(s)\\) is the Riemann-Zeta function.`,
         answerType: AnswerType.NUMBER,
@@ -195,8 +191,11 @@ var questionsData = [
     },
     {
         id: "vectorfield",
-        prompt: `Let \\(V = \\{ (f, g, h) : f, g, h \\in P_n \\}\\), where \\(P_n\\) represents all \\(n\\)th-degree polynomials, be a vector space. 
-        Let \\(W\\) the subsapce of all conservative vector fields on \\(\\mathbb{R}^3\\), i.e. for any simply connected curve \\(C\\), we have:
+        prompt: `Consider the vector space \\(V = \\{ (f, g, h) : f, g, h \\in S \\}\\), where:
+        \\[
+            S = \\big\\{ \\sum^n_{k=0} (a_k x^k + b_k y^k + c_k z^k) : \\forall 0 \\leq i \\leq n, \\, a_i, b_i, c_i \\in \\mathbb{R} \\big\\}
+        \\]
+        Let \\(W\\) the subspace of all conservative vector fields on \\(\\mathbb{R}^3\\), i.e. for any closed curve \\(C\\), we have:
         \\[ 
             \\mathbf{F} \\in W \\implies \\oint_C \\mathbf{F} \\cdot \\mathrm{d} \\mathbf{r} = 0
         \\]
@@ -208,9 +207,62 @@ var questionsData = [
     },
     {
         id: "casino",
-        prompt: `LogicBugs wants to open a casino, where if you play two diamonds, you have a probability \\(p\\) of winning back three diamonds. Find the probability that you make a profit if you play \\(n\\) times.`,
+        prompt: `LogicBugs wants to open a casino, where if you play two diamonds, you have a probability \\(p\\) of winning back three diamonds. 
+        Find the probability that you make a profit of 5 to 9 diamonds inclusive if you play \\(n\\) times. You can use <span class="mono">ceil(x)</span> as the ceiling function.`,
         answerType: AnswerType.FUNCTION,
         signatureTests: [{ "p": 0.3, "n": 1 }, { "p": 0.4, "n": 3 }, { "p": 0.5, "n": 6 }, { "p": 0.6, "n": 8 }, { "p": 0.75, "n": 10 }, { "p": 0.8, "n": 15 }, { "p": 0, "n": 20 }, { "p": 1, "n": 1 }, { "p": 1, "n": 0 }, { "p": 0.5, "n": 0 }],
+        isTutorial: false
+    }, 
+    {
+        id: "ellipticcurve",
+        prompt: `Consider the elliptic curve \\(E\\) over \\(\\mathbb{R}\\):
+        \\[
+            y^2 = x^3 - 4
+        \\]
+        and the point \\(P = (2, 2) \\in E\\). Find the \\(y\\)-coordinate of the point \\(Q \\in E\\) such that: 
+        \\[nP+nQ = \\begin{cases} P+Q & n \\text{ is odd}\\\\ \\mathcal{O} & \\text{otherwise} \\end{cases}  \\]
+        for \\(n > 1\\). You may assume that \\(Q\\) is unique.
+        `,
+        answerType: AnswerType.NUMBER,
+        signatureTests: null,
+        isTutorial: false
+    },
+    {
+        id: "zeta2",
+        prompt: `Let \\(T\\) be a linear operator on \\(\\mathbb{R^n}\\), with \\(n > 2\\). Suppose \\(T\\) has the matrix:
+        \\[
+            \\mathcal{M}(T) = \\begin{bmatrix}
+            \\lambda_1 &&&&&&0\\\\
+            &\\lambda_2&&&&&\\\\
+            &&\\ddots&&&&\\\\
+            &&&r\\cos a & -r\\sin a&&\\\\
+            &&&r\\sin a & r\\cos a&&\\\\
+            &&&&&\\ddots&\\\\
+            0&&&&&&\\lambda_{n-2}
+            \\end{bmatrix}
+            \\]
+        where \\(0 < \\lambda_i\\), \\(0 < r < \\frac{1}{2}\\), \\(a \\in \\mathbb{R}\\) and \\(\\mathrm{trace} \\, T = 1\\). Find the largest possible value of \\( \\det T \\).`,
+        answerType: AnswerType.FUNCTION,
+        signatureTests: [{"r": 1, "n": 3, "a": 0.2}, {"r": 10, "n": 5, "a": 0.5}, {"r": 3, "n": 7, "a": 100}, {"r": 0.1, "n": 4, "a": -0.3}, {"r": 5, "n": 10, "a": 0.7}],
+        isTutorial: false
+    },
+    {
+        id: "sqrta",
+        prompt: `Consider the vector field \\(\\mathbf{F}\\) and the region \\(S\\) for \\(a > 0\\):
+        \\[
+            \\mathbf{F} = \\left( \\frac{x}{\\sqrt{x^2+y^2+z^2}}, \\frac{y}{\\sqrt{x^2+y^2+z^2}}, \\frac{z}{\\sqrt{x^2+y^2+z^2}}\\right)
+        \\]
+        \\[
+            S = \\{(x,y,z) : |x|, |y|, |z| \\leq a\\}
+        \\]
+        Compute the value of: 
+        \\[\\oiint_{\\partial S} \\mathbf{F} \\cdot \\hat{\\mathbf{n}} \\, \\mathrm{d}S\\]
+        where \\(\\partial S\\) is the boundary of \\(S\\) and
+        \\( \\hat{\\mathbf{n}}\\) is the unit outward normal to \\(\\partial S\\) at the given point.
+        <br><br>
+        (Hint: Don't use the divergence theorem.)`,
+        answerType: AnswerType.FUNCTION,
+        signatureTests: [{a: 1}, {a: 10}, {a: 100}, {a: 1000}],
         isTutorial: false
     },
 ];
