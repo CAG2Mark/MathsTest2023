@@ -177,7 +177,8 @@ class Question {
 
     getAnswerInput() {
         return this.inputBox.value
-            .trim();
+            .trim()
+            .replaceAll("\n", "");
     }
 
     getAnswer() {

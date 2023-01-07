@@ -1,7 +1,7 @@
 # MathsTest2023
 This is the 2023 iteration of my very fun maths test.
 
-However, this project *does* provide a useful framework for creating client-side maths quizzes that auto-check your answers without revealing the answers themselves.
+Again, this was made as a joke, but, this project *does* provide a useful framework for creating client-side maths quizzes that auto-check your answers without revealing the answers themselves.
 
 A live demo is available [here](https://mathstest.markng.com/).
 # Improvements over the 2022 version

@@ -7,8 +7,8 @@ const AnswerType = {
 // after question p, q, r, etc
 var cp_pos = [4, 6, 8, 9, 11, 13, 16];
 
-const ANS_HASH = "395c969cf4d4e8e7a9d0c909b547965db82c8af76d61325126a9fcd12eb0a89f";
-const CHECKPOINT_HASHES = ['4855fdefbdc8028668dbb5fcf0592cead7ee0437e916983394767939e75bf0d7', '569d838ec99ac3d315f968b435d4b56b1870becee3246484804389a78e164fe9', 'b6072eebf0d796bf4dfd7fafa1d68087c6cacac81508f241288be88b25b45f09', '5652c7ca86811657f844d392e2b0d14870ae8d6d1762ec0fc6c26b55d31cda8d', 'f3a0f8af37c097c731664fb8c71f5877c9a2abc7b0d8b957198497ae38d2b482', '333b08017fac3a294ce7cb859ef6823944b18968350e88d639d03d6d850e960b', 'f5b37cb5361ac0c7d65fcab500212ab7877809a604615edb43b6d2a58cd3cc7d'];
+const ANS_HASH = "c2d00c107c6d8e1ca0b5faf1bd66a4979ea0d39cf382b3bcf9c7dbe2b030eef5";
+const CHECKPOINT_HASHES =  ['0b5c6eb6ff6fd3dca2c2b2c9c593170e3a5e2a8c98efd7bc157b2783d23f16dd', 'ddd2564cf8c00d7c4b5583cf4708c5b57d1347fa48b021018aed2bc058155808', 'ed17aee6b28f8f19d95cb67071b94f1fa359a747b1f13e54a7b1243a8dff6fb5', 'ffba922492fc6f200b82a294083bb4c00f669eeb6e374fdce25ad23ac60dcf26', 'b2c428b6ce4365725ef0d9cd036ef24d49222f21150651b7892fa742d68ad148', '0cff7c8646967f3950cdfbab0791823b854652593291629da35d0f9b029d083c', '60bbc3ecbbaf69dbd628cfe30a03be52803e07c86f6bed96dae883e522ebbe8b'];
 
 var questionsData = [
     {
@@ -67,7 +67,7 @@ var questionsData = [
     },
     {
         id: "image",
-        prompt: `<img src="assets/q2.jpg" style="width: 400px; max-width: 90%">`,
+        prompt: `<img src="assets/q2.png" style="width: 400px; max-width: 90%">`,
         answerType: AnswerType.NUMBER,
         signatureTests: null,
         isTutorial: false
@@ -151,7 +151,7 @@ var questionsData = [
     },
     {
         id: "cosine",
-        prompt: `Find \\(f(x) = c_0 + c_1x^2\\) such that it is the best approximation to \\(\\cos x\\) in the range \\([-\\pi, \\pi]\\), i.e.:
+        prompt: `Find \\(f(x) = c_0 + c_1x^2\\) such that:
         \\[
             \\int^{\\pi}_{-\\pi} |f(x) - \\cos x|^2 \\, \\mathrm{d} x
         \\]
