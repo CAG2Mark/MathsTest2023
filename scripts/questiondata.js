@@ -42,7 +42,7 @@ var questionsData = [
         prompt: `(Tutorial #3) For some questions, you may be asked to enter
         a function or expression. For example, if the question is asking for the product of
         \\(|xy-x|\\) and \\(|xy+x|\\), you could type <span class="mono">abs((x*y)^2 - x^2)</span> or
-        <span class="mono">abs(xy-x) * abs(xy+x)</span>. All of these will be correct.`,
+        <span class="mono">abs(x*y-x) * abs(x*y+x)</span>. All of these will be correct.`,
         answerType: AnswerType.FUNCTION,
         signatureTests: [{ "x": 1, "y": 1 }, { "x": -100, "y": 2 }, { "x": 2, "y": 0.51234 }, { "x": 4.5123, "y": 1 }, { "x": 7, "y": 0 }, { "x": 100, "y": 2 }, { "x": 0, "y": 0 }],
         isTutorial: true,
@@ -103,11 +103,11 @@ var questionsData = [
     },
     {
         id: "polynomial",
-        prompt: `Let \\(f_n(x) = 69 x^n + \\frac{69}{42} x^{n-1} + \\frac{69^2}{42} x^{n-2} + \\cdots + \\frac{69^{\\lfloor \\frac{n}{2} \\rfloor + 1}}{42^{\\lfloor \\frac{n + 1}{2} \\rfloor}} \\) and \\(g(x) = 69x + 42\\). Then for \\(n > 69420\\), there exists a unique polynomial \\(q_n(x)\\) and constant \\(r_n\\) such that:
+        prompt: `Let \\(f_n(x) = 69 + \\frac{69}{42} x + \\frac{69^2}{42} x^2 + \\cdots + \\frac{69^{\\lfloor \\frac{n}{2} \\rfloor + 1}}{42^{\\lfloor \\frac{n + 1}{2} \\rfloor}} x^n \\) and \\(g(x) = 69x + 42\\). Then for \\(n > 69420\\), there exists a unique polynomial \\(q_n(x)\\) and constant \\(r_n\\) such that:
         \\[
             f_n(x) = q_n(x) g_n(x) + r_n    
         \\]
-        Find the value of \\(\\displaystyle \\lim_{n\\to\\infty} \\frac{q_n(0)}{\\frac{69}{42} - r_n}\\).`,
+        Find the value of \\(\\displaystyle \\lim_{n\\to\\infty} \\frac{q_n(0)}{69 - r_n}\\).`,
         answerType: AnswerType.NUMBER,
         signatureTests: null,
         isTutorial: false
@@ -131,7 +131,7 @@ var questionsData = [
         \\[
             g(x)h(x) = f(x)q(x) + r(x)
         \\]
-        Find \\(h(x)\\) such that \\(r(x) = 69\\). \\(h(x)\\) <b>must</b> be a polynomial.<br>(Hint: Write code to run polynomial division/modulo and XGCD.)`,
+        Find the polynomial \\(h(x)\\) such that \\(r(x) = 69\\). \\(h(x)\\) <b>must</b> be a polynomial.<br>(Hint: Write code to run polynomial division/modulo and XGCD.)`,
         answerType: AnswerType.FUNCTION,
         signatureTests: [{ "x": -2 }, { "x": 1 }, { "x": 0 }, { "x": 1 }, { "x": 2 }, { "x": 3 }, { "x": 1.5 }, { "x": 2.5 }],
         isTutorial: false
@@ -157,7 +157,7 @@ var questionsData = [
         \\]
         is as small as possible.
         <br><br>
-        (Hint: It is not \\(1 - \\frac{x^2}{2!}\\). Instead, consider orthogonal projections onto a subspace of \\(\\mathbf{C}_\\mathbb{R}[-\\pi, \\pi]\\). And by the way, if you plot this approximation, it is horrible.)`,
+        (Hint: It is not \\(1 - \\frac{x^2}{2!}\\).)`,
         answerType: AnswerType.FUNCTION,
         signatureTests: [{ "x": 0 }, { "x": 1 }, { "x": 2 }, { "x": 3 }, { "x": 4 }, { "x": -2 }, { "x": 0.5 }, { "x": -4 }],
         isTutorial: false
@@ -166,7 +166,7 @@ var questionsData = [
         id: "calculation",
         prompt: `Let \\(r\\) be a positive integer. Compute the limit: 
         \\[
-            \\lim_{n\\to\\infty} \\left( n \\left[\\sum^r_{k=1} \\left( 1+\\frac{1}{n} \\right)^k\\right] - r \\right)  
+            \\lim_{n\\to\\infty} \\left( n \\left[\\sum^r_{k=1} \\left( 1+\\frac{1}{n} \\right)^k\\right] - rn \\right)  
         \\]`,
         answerType: AnswerType.FUNCTION,
         signatureTests: [{ "r": 1 }, { "r": 10 }, { "r": 100 }, { "r": 200 }, { "r": 1023 }],
@@ -207,7 +207,7 @@ var questionsData = [
     },
     {
         id: "casino",
-        prompt: `LogicBugs wants to open a casino, where if you play two diamonds, you have a probability \\(p\\) of winning back three diamonds. 
+        prompt: `LogicBugs wants to open a casino, where if you play two diamonds, you have a probability \\(p\\) of winning back five diamonds. Each play is independent.
         Find the probability that you make a profit of 5 to 9 diamonds inclusive if you play \\(n\\) times. You can use <span class="mono">ceil(x)</span> as the ceiling function.`,
         answerType: AnswerType.FUNCTION,
         signatureTests: [{ "p": 0.3, "n": 1 }, { "p": 0.4, "n": 3 }, { "p": 0.5, "n": 6 }, { "p": 0.6, "n": 8 }, { "p": 0.75, "n": 10 }, { "p": 0.8, "n": 15 }, { "p": 0, "n": 20 }, { "p": 1, "n": 1 }, { "p": 1, "n": 0 }, { "p": 0.5, "n": 0 }],
