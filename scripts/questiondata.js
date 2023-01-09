@@ -105,7 +105,7 @@ var questionsData = [
         id: "polynomial",
         prompt: `Let \\(f_n(x) = 69 + \\frac{69}{42} x + \\frac{69^2}{42} x^2 + \\cdots + \\frac{69^{\\lfloor \\frac{n}{2} \\rfloor + 1}}{42^{\\lfloor \\frac{n + 1}{2} \\rfloor}} x^n \\) and \\(g(x) = 69x + 42\\). Then for \\(n > 69420\\), there exists a unique polynomial \\(q_n(x)\\) and constant \\(r_n\\) such that:
         \\[
-            f_n(x) = q_n(x) g_n(x) + r_n    
+            f_n(x) = q_n(x) g(x) + r_n    
         \\]
         Find the value of \\(\\displaystyle \\lim_{n\\to\\infty} \\frac{q_n(0)}{69 - r_n}\\).`,
         answerType: AnswerType.NUMBER,
@@ -131,7 +131,7 @@ var questionsData = [
         \\[
             g(x)h(x) = f(x)q(x) + r(x)
         \\]
-        Find the polynomial \\(h(x)\\) such that \\(r(x) = 69\\). \\(h(x)\\) <b>must</b> be a polynomial.<br>(Hint: Write code to run polynomial division/modulo and XGCD.)`,
+        Find the polynomial \\(h(x)\\) with \\(\\deg h < \\deg f\\) such that \\(r(x) = 69\\). \\(h(x)\\) <b>must</b> be a polynomial.<br>(Hint: Write code to run polynomial division/modulo and XGCD.)`,
         answerType: AnswerType.FUNCTION,
         signatureTests: [{ "x": -2 }, { "x": 1 }, { "x": 0 }, { "x": 1 }, { "x": 2 }, { "x": 3 }, { "x": 1.5 }, { "x": 2.5 }],
         isTutorial: false
@@ -140,7 +140,7 @@ var questionsData = [
         id: "string",
         prompt: `A \\(CAG\\)-string is defined as a string of uppercase characters can be permuted into the form \\(CAGCAGCAG\\cdots CAG\\) (zero or more repeating \\(CAG\\)s) followed by at most two other characters. For example, \\(ACGGACAF\\) is a \\(CAG\\)-string as it can be permuted into \\(CAGCAGAF\\), but \\(CAGCAF\\) is not.
         <br>
-        There are \\(26\\) \\(CAG\\)-strings of length 1, \\(26^2\\) of length \\(3\\) and \\(3!\\) of length \\(3\\).
+        There are \\(26\\) \\(CAG\\)-strings of length 1, \\(26^2\\) of length \\(2\\) and \\(3!\\) of length \\(3\\).
         <br><br>
         How many \\(CAG\\)-strings of length \\(k\\) are there? 
         <br>
