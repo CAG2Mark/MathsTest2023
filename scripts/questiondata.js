@@ -105,7 +105,7 @@ var questionsData = [
         id: "polynomial",
         prompt: `Let \\(f_n(x) = 69 + \\frac{69}{42} x + \\frac{69^2}{42} x^2 + \\cdots + \\frac{69^{\\lfloor \\frac{n}{2} \\rfloor + 1}}{42^{\\lfloor \\frac{n + 1}{2} \\rfloor}} x^n \\) and \\(g(x) = 69x + 42\\). Then for \\(n > 69420\\), there exists a unique polynomial \\(q_n(x)\\) and constant \\(r_n\\) such that:
         \\[
-            f_n(x) = q_n(x) g_n(x) + r_n    
+            f_n(x) = q_n(x) g(x) + r_n    
         \\]
         Find the value of \\(\\displaystyle \\lim_{n\\to\\infty} \\frac{q_n(0)}{69 - r_n}\\).`,
         answerType: AnswerType.NUMBER,
