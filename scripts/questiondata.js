@@ -84,8 +84,8 @@ var questionsData = [
         isTutorial: false,
     },
     {
-        id: "fermat",
-        prompt: `How many pages long is the paper containing the first published proof of Fermat's Last Theroem?`,
+        id: "proof",
+        prompt: `On what page does the first mistake of <a href="https://vixra.org/pdf/1208.0009v4.pdf">this paper</a> appear?`,
         answerType: AnswerType.NUMBER,
         signatureTests: null,
         isTutorial: false
