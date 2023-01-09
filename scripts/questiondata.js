@@ -7,9 +7,8 @@ const AnswerType = {
 // after question p, q, r, etc
 var cp_pos = [4, 6, 8, 9, 11, 13, 16];
 
-const ANS_HASH = "c2d00c107c6d8e1ca0b5faf1bd66a4979ea0d39cf382b3bcf9c7dbe2b030eef5";
-const CHECKPOINT_HASHES =  ['0b5c6eb6ff6fd3dca2c2b2c9c593170e3a5e2a8c98efd7bc157b2783d23f16dd', 'ddd2564cf8c00d7c4b5583cf4708c5b57d1347fa48b021018aed2bc058155808', 'ed17aee6b28f8f19d95cb67071b94f1fa359a747b1f13e54a7b1243a8dff6fb5', 'ffba922492fc6f200b82a294083bb4c00f669eeb6e374fdce25ad23ac60dcf26', 'b2c428b6ce4365725ef0d9cd036ef24d49222f21150651b7892fa742d68ad148', '0cff7c8646967f3950cdfbab0791823b854652593291629da35d0f9b029d083c', '60bbc3ecbbaf69dbd628cfe30a03be52803e07c86f6bed96dae883e522ebbe8b'];
-
+const ANS_HASH = "144e1531cec81b318ba29746d1ad04463277b7b2e357513b952ab66160fe42c3";
+const CHECKPOINT_HASHES = ['e1510202fc18098b6cd7ca78eb60b5f786bb915f9c2cee8222a1abf7503f5ac8', 'c80a8cd8cd5731f97c84974a73806c866d9dff5ccfa8d8f3d0048d8063fff911', '11f50af3eee96589e40171e6bd391035e23f6df8c660acb6f5731c85ed0f8ff7', '0d17f9c5c5d0ff14dd6427199e26d6108777247c0129005c2e07716278831ec2', '4d546fee4574f111d4a101788a1ca564854c3deb30f46116d7e0ebce2ce5049d', 'fe3db6bb3bd70b0c81292ae4c01a3dd0e0be4f92a36be7a5d25d6e1e49c85d1f', 'e55e90c10cfbc2feca7a9fd5e6424c1c7fcf2deb730a541f64123fa0afc05192'];
 var questionsData = [
     {
         id: "tut1",
@@ -85,7 +84,9 @@ var questionsData = [
     },
     {
         id: "proof",
-        prompt: `On what page does the first mistake of <a href="https://vixra.org/pdf/1208.0009v4.pdf">this paper</a> appear?`,
+        prompt: `How many references to other materials are in <a href="https://vixra.org/pdf/1208.0009v4.pdf" target="_blank">this paper</a>? (This is not a difficult question but I just want you to read the references because they are funny)
+        <br><br>
+        BTW the paper is wrong so don't trust it.`,
         answerType: AnswerType.NUMBER,
         signatureTests: null,
         isTutorial: false
