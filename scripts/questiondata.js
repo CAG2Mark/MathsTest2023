@@ -131,7 +131,7 @@ var questionsData = [
         \\[
             g(x)h(x) = f(x)q(x) + r(x)
         \\]
-        Find the polynomial \\(h(x)\\) such that \\(r(x) = 69\\). \\(h(x)\\) <b>must</b> be a polynomial.<br>(Hint: Write code to run polynomial division/modulo and XGCD.)`,
+        Find the polynomial \\(h(x)\\) with $\\deg h < \\deg f$ such that \\(r(x) = 69\\). \\(h(x)\\) <b>must</b> be a polynomial.<br>(Hint: Write code to run polynomial division/modulo and XGCD.)`,
         answerType: AnswerType.FUNCTION,
         signatureTests: [{ "x": -2 }, { "x": 1 }, { "x": 0 }, { "x": 1 }, { "x": 2 }, { "x": 3 }, { "x": 1.5 }, { "x": 2.5 }],
         isTutorial: false
