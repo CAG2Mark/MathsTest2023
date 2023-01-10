@@ -7,8 +7,9 @@ const AnswerType = {
 // after question p, q, r, etc
 var cp_pos = [4, 6, 8, 9, 11, 13, 16];
 
-const ANS_HASH = "144e1531cec81b318ba29746d1ad04463277b7b2e357513b952ab66160fe42c3";
-const CHECKPOINT_HASHES = ['e1510202fc18098b6cd7ca78eb60b5f786bb915f9c2cee8222a1abf7503f5ac8', 'c80a8cd8cd5731f97c84974a73806c866d9dff5ccfa8d8f3d0048d8063fff911', '11f50af3eee96589e40171e6bd391035e23f6df8c660acb6f5731c85ed0f8ff7', '0d17f9c5c5d0ff14dd6427199e26d6108777247c0129005c2e07716278831ec2', '4d546fee4574f111d4a101788a1ca564854c3deb30f46116d7e0ebce2ce5049d', 'fe3db6bb3bd70b0c81292ae4c01a3dd0e0be4f92a36be7a5d25d6e1e49c85d1f', 'e55e90c10cfbc2feca7a9fd5e6424c1c7fcf2deb730a541f64123fa0afc05192'];
+const ANS_HASH = "9c8f47a4fd243068e2c2a4a4452f53f815fcf15b00e1303ff9fa90d3c21c61e8";
+const CHECKPOINT_HASHES = [ "e1510202fc18098b6cd7ca78eb60b5f786bb915f9c2cee8222a1abf7503f5ac8", "bda8a83b5d400cdc597963ec72fd5a79d631c2662e75666637602f10507a0991", "9b5af07f92cb2bd465bb58607fcd98c74d5a937469d90935965380039cced07b", "ed863ebdef22c3f5387343f8a15983c536eae39fd90c8d380d870aa56afa7639", "f3af2fbe02cb2fe84ac96323232e1f1ecc3d15a982ae0c39fb83ed769a574327", "0e312d6be7f18e2b4b38fc312a67605013e1d5e3ac00d99d076e59bb24dc8c0b", "4f1dad3fe41763b344405b63038f52c250ac81347ee232671f76108d3e9223fa" ];
+
 var questionsData = [
     {
         id: "tut1",
@@ -99,7 +100,7 @@ var questionsData = [
         \\]
         Find a closed-form expression for \\(\\displaystyle\\frac{\\partial^n f(x,y)}{\\partial x^n}\\).`,
         answerType: AnswerType.FUNCTION,
-        signatureTests: [{ "x": 1, "y": 1, "n": 4 }, { "x": 2, "y": 5, "n": 0 }, { "x": -4, "y": 2, "n": 2 }, { "x": 0, "y": 10, "n": 3 }, { "x": 1.5, "y": -2.5, "n": 2 }, { "x": 2, "y": 1.001, "n": 100 }, { "x": 0.5015, "y": 2.129, "n": 10 }],
+        signatureTests: [{ "x": 1, "y": 1, "n": 4 }, { "x": 2, "y": 5, "n": 0 }, { "x": -4, "y": 2, "n": 2 }, { "x": 0, "y": 10, "n": 3 }, { "x": 1.5, "y": -2.5, "n": 2 }, { "x": 2, "y": 1.001, "n": 15 }, { "x": 0.5015, "y": 2.129, "n": 10 }],
         isTutorial: false
     },
     {
