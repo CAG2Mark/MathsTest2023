@@ -130,6 +130,7 @@ function checkCode(input, checkpoint = -1) {
     document.body.append(script);
 
     setTimeout(() => {
+        populateCorrectAns();
         console.log(code.decryptMessage(input, getNthHash(checkpoint - 1)));  
     }, 100); 
 }
