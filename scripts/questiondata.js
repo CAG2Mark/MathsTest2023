@@ -143,7 +143,7 @@ var questionsData = [
         <br>
         There are \\(26\\) \\(CAG\\)-strings of length 1, \\(26^2\\) of length \\(2\\) and \\(3!\\) of length \\(3\\).
         <br><br>
-        How many \\(CAG\\)-strings of length \\(k\\) are there? 
+        How many \\(CAG\\)-strings of length \\(k\\) are there, for \\(k \\geq 0\\)? 
         <br>
         Note: you can use <span class="mono">floor(x)</span> as the floor function, <span class="mono">nCr(a,b)</span> to compute combinations, and <span class="mono">%</span> to compute mod. Also, assume that if \\(n < r\\), then \\(\\binom{n}{r} = 0\\).`,
         answerType: AnswerType.FUNCTION,
