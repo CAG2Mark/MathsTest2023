@@ -76,6 +76,12 @@ function nPr(n, r) {
     return p;
 }
 
+function sgn(x) {
+    if (x > Number.EPSILON) return 1;
+    if (x < -Number.EPSILON) return -1;
+    return 0;
+}
+
 const customFunctions = {
     ln: Math.log,
     arccos: Math.acos,
@@ -86,6 +92,7 @@ const customFunctions = {
     artanh: Math.atanh,
     nCr: nCr,
     nPr: nPr,
+    sgn: sgn,
 }
 
 math.import(customFunctions);
