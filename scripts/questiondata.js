@@ -7,9 +7,8 @@ const AnswerType = {
 // after question p, q, r, etc
 var cp_pos = [4, 6, 8, 9, 11, 13, 16];
 
-const ANS_HASH = "9c8f47a4fd243068e2c2a4a4452f53f815fcf15b00e1303ff9fa90d3c21c61e8";
-const CHECKPOINT_HASHES = [ "e1510202fc18098b6cd7ca78eb60b5f786bb915f9c2cee8222a1abf7503f5ac8", "bda8a83b5d400cdc597963ec72fd5a79d631c2662e75666637602f10507a0991", "9b5af07f92cb2bd465bb58607fcd98c74d5a937469d90935965380039cced07b", "ed863ebdef22c3f5387343f8a15983c536eae39fd90c8d380d870aa56afa7639", "f3af2fbe02cb2fe84ac96323232e1f1ecc3d15a982ae0c39fb83ed769a574327", "0e312d6be7f18e2b4b38fc312a67605013e1d5e3ac00d99d076e59bb24dc8c0b", "4f1dad3fe41763b344405b63038f52c250ac81347ee232671f76108d3e9223fa" ];
-
+const ANS_HASH = "38537abd86f065b039a95bfca9a7c3206bb61478204961592fd562c1623c906a";
+const CHECKPOINT_HASHES = ['e1510202fc18098b6cd7ca78eb60b5f786bb915f9c2cee8222a1abf7503f5ac8', 'bda8a83b5d400cdc597963ec72fd5a79d631c2662e75666637602f10507a0991', '9b5af07f92cb2bd465bb58607fcd98c74d5a937469d90935965380039cced07b', '83ff2dbd3b4739c374dd06874dd7f22d32c50975ec90efd445bfe3186161bc61', '9abe7a6e7d8f4004477660274eefd88fbe8b91f846c087e2ba93a0cc11b55040', '3b3b6fe6143cd9f599ff7231737f6c89ac936837aae1cbad497994506311e7c0', 'b0fdc2026fd1172b6fe3defab63177b236f898ffbeb87b215325daacd0aa7583'];
 var questionsData = [
     {
         id: "tut1",
@@ -148,7 +147,7 @@ var questionsData = [
         <br>
         Note: you can use <span class="mono">floor(x)</span> as the floor function, <span class="mono">nCr(a,b)</span> to compute combinations, and <span class="mono">%</span> to compute mod. Also, assume that if \\(n < r\\), then \\(\\binom{n}{r} = 0\\).`,
         answerType: AnswerType.FUNCTION,
-        signatureTests: [{ "k": 0 }, { "k": 1 }, { "k": 2 }, { "k": 3 }, { "k": 4 }, { "k": 5 }, { "k": 6 }, { "k": 7 }, { "k": 8 }, { "k": 9 }, { "k": 10 }, { "k": 11 }, { "k": 12 }, { "k": 13 }, { "k": 14 }, { "k": 15 }, { "k": 30 },],
+        signatureTests: [{ "k": 0 }, { "k": 1 }, { "k": 2 }, { "k": 3 }, { "k": 4 }, { "k": 5 }, { "k": 6 }, { "k": 7 }, { "k": 8 }, { "k": 9 }, { "k": 10 }, { "k": 11 }, { "k": 12 }, { "k": 13 }, { "k": 14 }, { "k": 15 }],
         isTutorial: false
     },
     {
