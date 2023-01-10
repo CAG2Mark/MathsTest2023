@@ -140,7 +140,7 @@ var questionsData = [
     },
     {
         id: "string",
-        prompt: `A \\(CAG\\)-string is defined as a string of uppercase characters can be permuted into the form \\(CAGCAGCAG\\cdots CAG\\) (zero or more repeating \\(CAG\\)s) followed by at most two other characters. For example, \\(ACGGACAF\\) is a \\(CAG\\)-string as it can be permuted into \\(CAGCAGAF\\), but \\(CAGCAF\\) is not.
+        prompt: `A \\(CAG\\)-string is defined as a string of uppercase characters can be permuted into the form \\(CAGCAGCAG\\cdots CAG\\) (zero or more repeating \\(CAG\\)s) followed by at most two other characters. For example, \\(ACGFACAG\\) is a \\(CAG\\)-string as it can be permuted into \\(CAGCAGAF\\), but \\(CAGCAF\\) is not.
         <br>
         There are \\(26\\) \\(CAG\\)-strings of length 1, \\(26^2\\) of length \\(2\\) and \\(3!\\) of length \\(3\\).
         <br><br>
