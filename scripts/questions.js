@@ -348,7 +348,7 @@ for (let i = 0, curSlideNo = slideQuesNo.length; i < questionsData.length; ++i, 
 
     let question = new Question(
         q.id, i + 1 - tutorialQuestionsCnt, q.prompt, q.answerType,
-        q.signatureTests, q.isTutorial, q.tutorialAnswer
+        q.signatureTests, q.isTutorial, q.tutorialAnswer, q.isDummy
     );
 
     questions.push(question);
