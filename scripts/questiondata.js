@@ -177,7 +177,7 @@ var questionsData = [
     },
     {
         id: "riemannzeta",
-        prompt: `Assuming that \\(\\displaystyle\\sum^\\infty_{k=1} \\frac{1}{k^{-1}} = -\\frac{1}{12} = \\zeta(-1)\\), give a real number \\(a \\neq \\frac{1}{2}\\) such that 
+        prompt: `Assuming that \\(\\displaystyle\\sum^\\infty_{k=1} \\frac{1}{k^{-1}} = -\\frac{1}{12} = \\zeta(-1)\\), give a real number \\(a \\in [0,1] - \\big\\{\\frac{1}{2}\\big\\}\\) such that 
         \\[\\exists b \\in \\mathbb{R}: \\zeta(a + bi) = 0\\]
         where \\(\\zeta(s)\\) is the Riemann-Zeta function.`,
         answerType: AnswerType.NUMBER,
