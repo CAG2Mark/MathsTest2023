@@ -193,7 +193,7 @@ var questionsData = [
     },
     {
         id: "vectorfield",
-        prompt: `Consider the vector space \\(V = \\{ (f, g, h) : f, g, h \\in S \\}\\), where:
+        prompt: `Let \\(n \\in \\mathbb{Z}^+\\). Consider the vector space \\(V = \\{ (f, g, h) : f, g, h \\in S \\}\\), where:
         \\[
             S = \\big\\{ \\sum^n_{k=0} (a_k x^k + b_k y^k + c_k z^k) : \\forall 0 \\leq i \\leq n, \\, a_i, b_i, c_i \\in \\mathbb{R} \\big\\}
         \\]
