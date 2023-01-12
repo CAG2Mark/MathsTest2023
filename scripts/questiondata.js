@@ -197,7 +197,7 @@ var questionsData = [
         \\[
             S = \\big\\{ \\sum^n_{k=0} (a_k x^k + b_k y^k + c_k z^k) : \\forall 0 \\leq i \\leq n, \\, a_i, b_i, c_i \\in \\mathbb{R} \\big\\}
         \\]
-        Let \\(W\\) the subspace of all conservative vector fields on \\(\\mathbb{R}^3\\), i.e. for any closed curve \\(C\\), we have:
+        Let \\(W\\) be the subspace of all conservative vector fields on \\(\\mathbb{R}^3\\), i.e. for any closed curve \\(C\\), we have:
         \\[ 
             \\mathbf{F} \\in W \\implies \\oint_C \\mathbf{F} \\cdot \\mathrm{d} \\mathbf{r} = 0
         \\]
