@@ -223,7 +223,7 @@ var questionsData = [
         \\]
         and the point \\(P = (2, 2) \\in E\\). Find the \\(y\\)-coordinate of the point \\(Q \\in E\\) such that : 
         \\[nP+nQ = \\begin{cases} P+Q & n \\text{ is odd}\\\\ \\mathcal{O} & \\text{otherwise} \\end{cases}  \\]
-        for \\(n > 1\\) and \\(P + Q \\neq \\mathcal{O}\\)You may assume that \\(Q\\) is unique.
+        for \\(n > 1\\) and \\(P + Q \\neq \\mathcal{O}\\). You may assume that \\(Q\\) is unique.
         `,
         answerType: AnswerType.NUMBER,
         signatureTests: null,
