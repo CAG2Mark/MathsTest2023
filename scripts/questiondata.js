@@ -242,7 +242,7 @@ var questionsData = [
             0&&&&&&\\lambda_{n-2}
             \\end{bmatrix}
             \\]
-        where \\(0 < \\lambda_i\\), \\(0 < r < \\frac{1}{2}\\), \\(a \\in \\mathbb{R}\\) and \\(\\mathrm{trace} \\, T = 1\\). Find the largest possible value of \\( \\det T \\).`,
+        where \\(0 < \\lambda_i\\), \\(0 < r < \\frac{1}{2}\\), \\(a \\in \\mathbb{R}\\) and \\(\\mathrm{trace} \\, T = 1\\). What is the largest possible value of \\( \\det T \\) you can obtain by only varying each \\(\\lambda_i\\)?`,
         answerType: AnswerType.FUNCTION,
         signatureTests: [{"r": 0.2, "n": 5, "a": 0.2}, {"r": 0.3, "n": 6, "a": 0.5}, {"r": 0.1, "n": 7, "a": 100}, {"r": 0.4, "n": 7, "a": -0.3}, {"r": 0.25, "n": 10, "a": 0.7}],
         isTutorial: false
