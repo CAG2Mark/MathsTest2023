@@ -7,9 +7,8 @@ const AnswerType = {
 // after question p, q, r, etc
 var cp_pos = [4, 6, 8, 9, 11, 13, 16];
 
-const ANS_HASH = "90e3ae4128e83e94b6c37eede30fa9b16ef6672d6c63e9a3abe20d07cf65c5da";
-const CHECKPOINT_HASHES = [ "e1510202fc18098b6cd7ca78eb60b5f786bb915f9c2cee8222a1abf7503f5ac8", "bda8a83b5d400cdc597963ec72fd5a79d631c2662e75666637602f10507a0991", "9b5af07f92cb2bd465bb58607fcd98c74d5a937469d90935965380039cced07b", "83ff2dbd3b4739c374dd06874dd7f22d32c50975ec90efd445bfe3186161bc61", "9abe7a6e7d8f4004477660274eefd88fbe8b91f846c087e2ba93a0cc11b55040", "927dcb5678bc3ea9ff925a984180168aca4b44c3c986a434225127c8cbc7914d", "a235961bbacff9928a14ecfa19a141e04be390ce01aeaf5dd6bbf55ee8c66fc5" ];
-
+const ANS_HASH = "4157de8be8c06ef4a11c623f7598fd764310545275502ca9ffb011ed2edefb69";
+const CHECKPOINT_HASHES = ['e1510202fc18098b6cd7ca78eb60b5f786bb915f9c2cee8222a1abf7503f5ac8', 'bda8a83b5d400cdc597963ec72fd5a79d631c2662e75666637602f10507a0991', '9b5af07f92cb2bd465bb58607fcd98c74d5a937469d90935965380039cced07b', '83ff2dbd3b4739c374dd06874dd7f22d32c50975ec90efd445bfe3186161bc61', '9abe7a6e7d8f4004477660274eefd88fbe8b91f846c087e2ba93a0cc11b55040', '927dcb5678bc3ea9ff925a984180168aca4b44c3c986a434225127c8cbc7914d', 'a235961bbacff9928a14ecfa19a141e04be390ce01aeaf5dd6bbf55ee8c66fc5'];
 var questionsData = [
     {
         id: "tut1",
@@ -245,7 +244,7 @@ var questionsData = [
             \\]
         where \\(0 < \\lambda_i\\), \\(0 < r < \\frac{1}{2}\\), \\(a \\in \\mathbb{R}\\) and \\(\\mathrm{trace} \\, T = 1\\). Find the largest possible value of \\( \\det T \\).`,
         answerType: AnswerType.FUNCTION,
-        signatureTests: [{"r": 1, "n": 3, "a": 0.2}, {"r": 10, "n": 5, "a": 0.5}, {"r": 3, "n": 7, "a": 100}, {"r": 0.1, "n": 4, "a": -0.3}, {"r": 5, "n": 10, "a": 0.7}],
+        signatureTests: [{"r": 0.2, "n": 5, "a": 0.2}, {"r": 0.3, "n": 6, "a": 0.5}, {"r": 0.1, "n": 7, "a": 100}, {"r": 0.4, "n": 7, "a": -0.3}, {"r": 0.25, "n": 10, "a": 0.7}],
         isTutorial: false
     },
     {
