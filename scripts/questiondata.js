@@ -231,7 +231,7 @@ var questionsData = [
     },
     {
         id: "zeta2",
-        prompt: `Let \\(T\\) be a linear operator on \\(\\mathbb{R^n}\\), with \\(n > 2\\). Suppose \\(T\\) has the matrix:
+        prompt: `Let \\(T\\) be a linear operator on \\(\\mathbb{R^n}\\), with \\(n > 4\\). Suppose \\(T\\) has the matrix:
         \\[
             \\mathcal{M}(T) = \\begin{bmatrix}
             \\lambda_1 &&&&&&0\\\\
