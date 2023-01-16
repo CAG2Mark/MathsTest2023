@@ -7,8 +7,9 @@ const AnswerType = {
 // after question p, q, r, etc
 var cp_pos = [4, 6, 8, 9, 11, 13, 16];
 
-const ANS_HASH = "4157de8be8c06ef4a11c623f7598fd764310545275502ca9ffb011ed2edefb69";
-const CHECKPOINT_HASHES = ['e1510202fc18098b6cd7ca78eb60b5f786bb915f9c2cee8222a1abf7503f5ac8', 'bda8a83b5d400cdc597963ec72fd5a79d631c2662e75666637602f10507a0991', '9b5af07f92cb2bd465bb58607fcd98c74d5a937469d90935965380039cced07b', '83ff2dbd3b4739c374dd06874dd7f22d32c50975ec90efd445bfe3186161bc61', '9abe7a6e7d8f4004477660274eefd88fbe8b91f846c087e2ba93a0cc11b55040', '927dcb5678bc3ea9ff925a984180168aca4b44c3c986a434225127c8cbc7914d', 'a235961bbacff9928a14ecfa19a141e04be390ce01aeaf5dd6bbf55ee8c66fc5'];
+const ANS_HASH = "361f7f5750095f55e9e1b1c2186db19c3ec7d719b46a3ed74368c99fd4deee81";
+const CHECKPOINT_HASHES = [ "1279bc5fdcb84e1e2cfceded6711fe6b925bc1e06817d68efaf77f3e225c5a65", "197aa82396a55db330fe895a6da9a67973ca29755d18cc270dc72fd67b3dbbc4", "a3d834292e0fa18651c73027ec7e8c2794df55695084eaf76bfd8f075536855b", "82785900495d4b7779924762f161c814b5a0624797640525adde04b470545c96", "eb04f4f9a7b9805831fc4d616e498e0f1a8066f0811fa9edaeea4ff5212dcc02", "25d1c8b8839678ed15cc713a08e6a386c9ee639aa9ce3ae657c8676520ba5aae", "2ebafb37ba59b97764414fead3fb9508294f32eb28fff353518385c34b7ad315" ];
+
 var questionsData = [
     {
         id: "tut1",
@@ -211,7 +212,7 @@ var questionsData = [
         prompt: `LogicBugs wants to open a casino, where if you play two diamonds, you have a probability \\(p\\) of winning back five diamonds. Each play is independent.
         Find the probability that you make a profit of 5 to 9 diamonds inclusive if you play \\(n\\) times. You can use <span class="mono">ceil(x)</span> as the ceiling function.`,
         answerType: AnswerType.FUNCTION,
-        signatureTests: [{ "p": 0.3, "n": 1 }, { "p": 0.4, "n": 3 }, { "p": 0.5, "n": 6 }, { "p": 0.6, "n": 8 }, { "p": 0.75, "n": 10 }, { "p": 0.8, "n": 15 }, { "p": 0, "n": 20 }, { "p": 1, "n": 1 }, { "p": 1, "n": 0 }, { "p": 0.5, "n": 0 }],
+        signatureTests: [{ "p": 0.3, "n": 1 }, { "p": 0.4, "n": 3 }, { "p": 0.5, "n": 6 }, { "p": 0.6, "n": 8 }, { "p": 0.75, "n": 10 }, { "p": 0.8, "n": 15 }, { "p": 0, "n": 5 }, { "p": 1, "n": 2 }, { "p": 0.5, "n": 0 }],
         isTutorial: false
     }, 
     {

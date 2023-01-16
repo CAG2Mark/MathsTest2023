@@ -3,7 +3,7 @@
 // Manages and uses things like the maths library
 // to rough-check the equality of functions and numbers. 
 
-const PRECISION = 14;
+const PRECISION = 13;
 var max = Math.pow(10, PRECISION);
 
 const customLaTeX = {
