@@ -3,7 +3,7 @@ This is the 2023 iteration of my very fun maths test.
 
 Again, this was made as a joke, but, this project *does* provide a useful framework for creating client-side maths quizzes that auto-check your answers without revealing the answers themselves.
 
-A live demo is available [here](https://mathstest.markng.com/).
+A live demo is available [here](https://mathstest2023.markng.com/).
 # Improvements over the 2022 version
 * Dummy questions can now be added.
 * The system can now detect potential errors in your answer. For example, `math.js` will read `xy` as a single variable, and `x(x+1)` as a function call. However, this is often not desirable. These are now detected and the user is warned.
